@@ -15,7 +15,34 @@ import {
   X,
   Star,
   Check,
+  Cloud,
+  Database,
+  BarChart3,
+  Palette,
+  Cog,
+  Bot,
+  Monitor,
+  Headphones,
 } from "lucide-react";
+
+// Import Bootstrap Carousel
+import Carousel from "react-bootstrap/Carousel";
+
+// Placeholder ExampleCarouselImage component
+const ExampleCarouselImage = ({ text }) => (
+  <div
+    style={{
+      height: "400px",
+      background: "#ddd",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+    }}
+  >
+    <h2>{text}</h2>
+  </div>
+);
 
 const KKITSolution = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,37 +61,123 @@ const KKITSolution = () => {
       icon: <Code className="w-8 h-8" />,
       title: "Web Development",
       description:
-        "Custom websites and web applications built with modern technologies and responsive design.",
+        "Custom web applications using modern frameworks like React, Vue, Angular, and Node.js",
+      features: [
+        "Responsive Design",
+        "Progressive Web Apps",
+        "E-commerce Solutions",
+        "CMS Development",
+      ],
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
       title: "Mobile Apps",
       description:
-        "Native and cross-platform mobile applications for iOS and Android platforms.",
+        "Native and cross-platform mobile applications for iOS and Android",
+      features: [
+        "Native iOS/Android",
+        "React Native",
+        "Flutter",
+        "App Store Optimization",
+      ],
     },
     {
-      icon: <Globe className="w-8 h-8" />,
-      title: "Digital Solutions",
-      description:
-        "End-to-end digital transformation services to modernize your business processes.",
+      icon: <Cloud className="w-8 h-8" />,
+      title: "Cloud Solutions",
+      description: "Scalable cloud infrastructure and migration services",
+      features: ["AWS/Azure/GCP", "Cloud Migration", "DevOps", "Microservices"],
     },
     {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Cybersecurity",
-      description:
-        "Comprehensive security solutions to protect your digital assets and data.",
+      icon: <Database className="w-8 h-8" />,
+      title: "Database Management",
+      description: "Database design, optimization, and management solutions",
+      features: [
+        "SQL/NoSQL",
+        "Data Migration",
+        "Performance Tuning",
+        "Backup Solutions",
+      ],
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: "IT Consulting",
+      icon: <BarChart3 className="w-8 h-8" />,
+      title: "Data Analytics",
       description:
-        "Strategic IT consulting to optimize your technology infrastructure and operations.",
+        "Turn your data into actionable insights with advanced analytics",
+      features: [
+        "Business Intelligence",
+        "Data Visualization",
+        "Machine Learning",
+        "Predictive Analytics",
+      ],
     },
     {
-      icon: <Target className="w-8 h-8" />,
-      title: "Digital Marketing",
+      icon: <Palette className="w-8 h-8" />,
+      title: "UI/UX Design",
+      description: "Beautiful, user-centered design that drives engagement",
+      features: [
+        "User Research",
+        "Wireframing",
+        "Prototyping",
+        "Design Systems",
+      ],
+    },
+    {
+      icon: <Cog className="w-8 h-8" />,
+      title: "Custom Software",
       description:
-        "Data-driven marketing strategies to boost your online presence and growth.",
+        "Tailored software solutions for unique business requirements",
+      features: [
+        "Enterprise Software",
+        "Integration Solutions",
+        "Legacy Modernization",
+        "API Development",
+      ],
+    },
+    {
+      icon: <Bot className="w-8 h-8" />,
+      title: "AI & Machine Learning",
+      description: "Intelligent solutions powered by artificial intelligence",
+      features: [
+        "Chatbots",
+        "Computer Vision",
+        "Natural Language Processing",
+        "Automation",
+      ],
+    },
+    {
+      icon: <Zap className="w-8 h-8" />,
+      title: "Digital Transformation",
+      description:
+        "Complete digital transformation strategies and implementation",
+      features: [
+        "Process Automation",
+        "Digital Strategy",
+        "Change Management",
+        "Technology Consulting",
+      ],
+    },
+    {
+      icon: <Monitor className="w-8 h-8" />,
+      title: "Quality Assurance",
+      description: "Comprehensive testing services to ensure software quality",
+      features: [
+        "Automated Testing",
+        "Performance Testing",
+        "Security Testing",
+        "User Acceptance Testing",
+      ],
+    },
+    {
+      icon: <Headphones className="w-8 h-8" />,
+      title: "Support & Maintenance",
+      description:
+        "24/7 support and maintenance services for your applications",
+      features: [
+        "Technical Support",
+        "Bug Fixes",
+        "Performance Monitoring",
+        "Regular Updates",
+      ],
     },
   ];
 
@@ -80,7 +193,7 @@ const KKITSolution = () => {
   return (
     <div className="min-h-screen bg-white overflow-hidden">
       {/* Header */}
-      <header
+      {/* <header
         className={`fixed w-full top-0 z-50 transition-all duration-300 ${
           scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
         }`}
@@ -98,7 +211,6 @@ const KKITSolution = () => {
                 <p className="text-xs text-blue-600">Innovation & Excellence</p>
               </div>
             </div>
-
             <nav className="hidden md:flex items-center space-x-8">
               {["Services", "About", "Portfolio", "Contact"].map((item) => (
                 <a
@@ -113,7 +225,6 @@ const KKITSolution = () => {
                 Get Started
               </button>
             </nav>
-
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden text-gray-700 hover:text-blue-600 transition-colors"
@@ -126,7 +237,7 @@ const KKITSolution = () => {
             </button>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Mobile Menu */}
       {isMenuOpen && (
@@ -165,7 +276,6 @@ const KKITSolution = () => {
             style={{ animationDelay: "4s" }}
           ></div>
         </div>
-
         <div className="max-w-7xl mx-auto px-6 pt-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
@@ -173,19 +283,16 @@ const KKITSolution = () => {
                 <Star className="w-4 h-4 mr-2" />
                 Premium IT Solutions
               </div>
-
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Transform Your
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
                   Digital Future
                 </span>
               </h1>
-
               <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
                 Empowering businesses with cutting-edge IT solutions, innovative
                 web development, and strategic digital transformation services.
               </p>
-
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button className="group bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
                   Start Your Project
@@ -196,7 +303,6 @@ const KKITSolution = () => {
                 </button>
               </div>
             </div>
-
             <div className="flex justify-center">
               <img
                 src="https://cdn.qwenlm.ai/output/6fed707b-2f31-4adb-995d-390d6e034622/t2i/d3914708-a6ea-48f3-ba2a-ae09e598b2dd/1752501521.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNmZlZDcwN2ItMmYzMS00YWRiLTk5NWQtMzkwZDZlMDM0NjIyIiwicmVzb3VyY2VfaWQiOiIxNzUyNTAxNTIxIiwicmVzb3VyY2VfY2hhdF9pZCI6IjVkYzJmNDIxLTQ0ZGItNDc1YS04YTQ3LTcwZDYxMDM0ZTE4OSJ9.yT7TXmh7sCV6xW5uO531xGM4vwCC2_vU25SdldBQgkw"
@@ -206,7 +312,6 @@ const KKITSolution = () => {
             </div>
           </div>
         </div>
-
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <ChevronDown className="w-6 h-6 text-blue-600" />
@@ -229,26 +334,69 @@ const KKITSolution = () => {
               end-to-end technology solutions that drive business growth.
             </p>
           </div>
-
+          {/* Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group bg-white p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="bg-white p-6 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="bg-gradient-to-r from-blue-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+                <div className="flex items-center mb-4">
+                  <div className="bg-blue-500 text-white rounded-full p-3 mr-4">
+                    {React.cloneElement(service.icon, {
+                      className: "w-6 h-6",
+                    })}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600">{service.description}</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {service.description}
-                </p>
+                <ul className="list-disc pl-5 text-gray-600">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Full Width Carousel Section */}
+      <section className="w-full bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <h3 className="text-2xl font-bold text-center text-gray-900 mb-6">
+            What Our Clients Say
+          </h3>
+        </div>
+        <Carousel className="w-full">
+          <Carousel.Item>
+            <ExampleCarouselImage text="Client Testimonial 1" />
+            <Carousel.Caption>
+              <h3>First Client Feedback</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <ExampleCarouselImage text="Client Testimonial 2" />
+            <Carousel.Caption>
+              <h3>Second Client Feedback</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <ExampleCarouselImage text="Client Testimonial 3" />
+            <Carousel.Caption>
+              <h3>Third Client Feedback</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
       </section>
 
       {/* Features Section */}
@@ -267,7 +415,6 @@ const KKITSolution = () => {
                 We combine technical expertise with creative innovation to
                 deliver solutions that exceed expectations.
               </p>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">
@@ -279,7 +426,6 @@ const KKITSolution = () => {
                 ))}
               </div>
             </div>
-
             <div className="relative">
               <div className="bg-white rounded-3xl p-8 shadow-2xl">
                 <div className="space-y-6">
@@ -295,7 +441,6 @@ const KKITSolution = () => {
                       style={{ width: "98%" }}
                     ></div>
                   </div>
-
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">Client Satisfaction</span>
                     <span className="text-2xl font-bold text-blue-600">
@@ -308,7 +453,6 @@ const KKITSolution = () => {
                       style={{ width: "100%" }}
                     ></div>
                   </div>
-
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">On-Time Delivery</span>
                     <span className="text-2xl font-bold text-blue-600">
@@ -372,7 +516,6 @@ const KKITSolution = () => {
                 and digital excellence.
               </p>
             </div>
-
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <div className="space-y-2">
@@ -387,7 +530,6 @@ const KKITSolution = () => {
                 ))}
               </div>
             </div>
-
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
               <div className="space-y-2 text-gray-400">
@@ -397,7 +539,6 @@ const KKITSolution = () => {
               </div>
             </div>
           </div>
-
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2025 KK-IT-SOLUTION. All rights reserved.</p>
           </div>
