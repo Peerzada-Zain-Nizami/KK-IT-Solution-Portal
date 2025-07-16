@@ -1,9 +1,10 @@
-import React from 'react';
-import { Code2, Mail, Phone, MapPin } from 'lucide-react';
+import React from "react";
+import { Code2, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 text-white py-12 px-6">
+    <footer className="bg-white text-gray-800 py-12 px-6 border-t border-gray-200">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -11,53 +12,121 @@ const Footer: React.FC = () => {
               <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg">
                 <Code2 className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold">CodeCraft Solutions</span>
+              <span className="text-xl font-bold text-blue-600">
+                KK-IT-SOLUTIONS
+              </span>
             </div>
-            <p className="text-gray-400">
-              Transforming ideas into powerful digital solutions with cutting-edge technology and innovative design.
+            <p className="text-gray-600">
+              Transforming ideas into powerful digital solutions with
+              cutting-edge technology and innovative design.
             </p>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>Web Development</li>
-              <li>Mobile Apps</li>
-              <li>UI/UX Design</li>
-              <li>DevOps</li>
+            <h3 className="text-lg font-semibold mb-4 text-gray-900">
+              Services
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/web-development"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Web Development
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/mobile-apps"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Mobile Apps
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/ui-ux-design"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  UI/UX Design
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/devops"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  DevOps
+                </Link>
+              </li>
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>About Us</li>
-              <li>Our Team</li>
-              <li>Careers</li>
-              <li>Portfolio</li>
+            <h3 className="text-lg font-semibold mb-4 text-gray-900">
+              Company
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/about"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/team"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Our Team
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/careers"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/portfolio"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Portfolio
+                </Link>
+              </li>
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <div className="space-y-2 text-gray-400">
+            <h3 className="text-lg font-semibold mb-4 text-gray-900">
+              Contact
+            </h3>
+            <div className="space-y-2 text-gray-600">
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span>info@codecraftsolutions.com</span>
+                <Mail className="w-4 h-4 text-blue-600" />
+                <span>info@kkitsolutions.com</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>+1 (555) 123-4567</span>
+                <Phone className="w-4 h-4 text-blue-600" />
+                <span>+92 300 5751689</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                <span>123 Tech Street, Silicon Valley</span>
+                <MapPin className="w-4 h-4 text-blue-600" />
+                <span>
+                  Green Homes Colony house # 49 Nawab Pur Road Near 8 number
+                  chungi
+                </span>
               </div>
             </div>
           </div>
         </div>
-        
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+
+        <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500">
           <p>&copy; 2024 CodeCraft Solutions. All rights reserved.</p>
         </div>
       </div>

@@ -23,13 +23,41 @@ import {
   Bot,
   Monitor,
   Headphones,
+  Phone,
 } from "lucide-react";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import Slider from "react-slick";
+// For navigation arrows
 
 // Import Bootstrap Carousel
 import Carousel from "react-bootstrap/Carousel";
 
+const steps = [
+  {
+    number: 1,
+    icon: <Phone className="w-6 h-6 text-white" />,
+    title: "Join exploration call.",
+    description:
+      "Tell us more about your business on a discovery call. We'll discuss team structure and approach, success criteria, timescale, budget, and required skill sets to see how we can help.",
+  },
+  {
+    number: 2,
+    icon: <Users className="w-6 h-6 text-white" />,
+    title: "Discuss solution and team structure.",
+    description:
+      "In a matter of days, we will finalize your project specifications, agree on an engagement model, select and onboard your team.",
+  },
+  {
+    number: 3,
+    icon: <Target className="w-6 h-6 text-white" />,
+    title: "Get started and track performance.",
+    description:
+      "Once we've agreed on milestones, we'll immediately get to work. We'll track progress, report updates, and continuously adapt to your needs.",
+  },
+];
+
 // Placeholder ExampleCarouselImage component
-const ExampleCarouselImage = ({ text }) => (
+const ExampleCarouselImage = ({ text }: any) => (
   <div
     style={{
       height: "400px",
@@ -189,6 +217,37 @@ const KKITSolution = () => {
     "Quality Assurance",
     "Post-Launch Maintenance",
   ];
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
@@ -400,72 +459,224 @@ const KKITSolution = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-50 to-blue-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-20 relative bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left Content */}
             <div>
-              <div className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <Heart className="w-4 h-4 mr-2" />
-                Why Choose Us
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Excellence in Every Project
+                Why Choose Sparkix Tech?
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                We combine technical expertise with creative innovation to
-                deliver solutions that exceed expectations.
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                In our steadfast pursuit of seamlessly embracing the future, we
+                pledge an unwavering commitment to transparency and a proactive
+                approach in addressing both conventional and non-conventional IT
+                challenges. Our resilience stands as the bedrock for achieving
+                new heights in innovation and digital experiences. At the heart
+                of our capabilities lies a comprehensive expertise that spans
+                across all facets of solutions, encompassing custom product
+                development, integrations with Generative AI, data modernization
+                initiatives, proficient cloud operations, and strategic business
+                consultancy. Choose us as your trusted partner, where
+                professionalism meets unparalleled proficiency, and together, we
+                shape the future of your digital endeavors.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Check className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-gray-700 font-medium">{feature}</span>
-                  </div>
-                ))}
+            </div>
+
+            {/* Right Side - World Map */}
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden">
+                {/* Simplified World Map SVG */}
+                <svg viewBox="0 0 800 400" className="w-full h-64 mb-4">
+                  {/* Background */}
+                  <rect width="800" height="400" fill="#f8f9fa" />
+
+                  {/* Continents - simplified shapes */}
+                  {/* North America */}
+                  <path
+                    d="M50 100 L200 80 L250 120 L280 180 L200 200 L100 220 L50 180 Z"
+                    fill="#6b7280"
+                    opacity="0.7"
+                  />
+
+                  {/* South America */}
+                  <path
+                    d="M180 220 L220 240 L240 320 L200 350 L160 320 L150 260 Z"
+                    fill="#6b7280"
+                    opacity="0.7"
+                  />
+
+                  {/* Europe */}
+                  <path
+                    d="M350 80 L420 70 L450 100 L430 130 L380 140 L340 120 Z"
+                    fill="#3b82f6"
+                    opacity="0.8"
+                  />
+
+                  {/* Africa */}
+                  <path
+                    d="M380 140 L450 150 L470 250 L440 320 L400 340 L360 300 L350 200 Z"
+                    fill="#6b7280"
+                    opacity="0.7"
+                  />
+
+                  {/* Asia */}
+                  <path
+                    d="M450 60 L650 50 L700 100 L720 150 L650 180 L500 160 L450 120 Z"
+                    fill="#3b82f6"
+                    opacity="0.8"
+                  />
+
+                  {/* Australia */}
+                  <path
+                    d="M600 280 L680 270 L700 300 L680 320 L620 310 Z"
+                    fill="#6b7280"
+                    opacity="0.7"
+                  />
+
+                  {/* Additional highlighted regions */}
+                  <path
+                    d="M50 100 L200 80 L250 120 L200 140 L100 150 L50 130 Z"
+                    fill="#3b82f6"
+                    opacity="0.8"
+                  />
+
+                  {/* Decorative elements */}
+                  <circle cx="100" cy="50" r="2" fill="#3b82f6" opacity="0.6" />
+                  <circle cx="300" cy="60" r="2" fill="#3b82f6" opacity="0.6" />
+                  <circle cx="500" cy="40" r="2" fill="#3b82f6" opacity="0.6" />
+                  <circle cx="650" cy="80" r="2" fill="#3b82f6" opacity="0.6" />
+                </svg>
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-white rounded-3xl p-8 shadow-2xl">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Project Success Rate</span>
-                    <span className="text-2xl font-bold text-blue-600">
-                      98%
-                    </span>
+          </div>
+
+          {/* Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            {/* Empowered Innovation */}
+            <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-green-500">
+              <div className="flex items-center mb-4">
+                <div className="w-2 h-8 bg-green-500 rounded mr-4"></div>
+                <h3 className="text-xl font-bold text-gray-900">
+                  Empowered Innovation
+                </h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                Empowering innovation at our core, we pioneer transformative
+                solutions, driving progress, and shaping the future of IT
+                excellence.
+              </p>
+            </div>
+
+            {/* Guaranteed Excellence */}
+            <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-yellow-500">
+              <div className="flex items-center mb-4">
+                <div className="w-2 h-8 bg-yellow-500 rounded mr-4"></div>
+                <h3 className="text-xl font-bold text-gray-900">
+                  Guaranteed Excellence
+                </h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We think out of the box about every incoming thread and problem
+                that customers face and provide diligent solutions.
+              </p>
+            </div>
+
+            {/* Impeccable Performance */}
+            <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-purple-500">
+              <div className="flex items-center mb-4">
+                <div className="w-2 h-8 bg-purple-500 rounded mr-4"></div>
+                <h3 className="text-xl font-bold text-gray-900">
+                  Impeccable Performance
+                </h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We offer software with robust speed and on time by focusing on
+                the deliverables and tricky clients' requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left Side - Content */}
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                Our process. Simple, seamless, streamlined.
+              </h2>
+
+              {/* Professional Image Placeholder */}
+              <div className="relative">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg">
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                        <Users className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <div className="h-3 bg-gray-200 rounded w-24 mb-2"></div>
+                        <div className="h-2 bg-gray-200 rounded w-32"></div>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="h-2 bg-gray-200 rounded w-full"></div>
+                      <div className="h-2 bg-gray-200 rounded w-3/4"></div>
+                      <div className="h-2 bg-gray-200 rounded w-1/2"></div>
+                    </div>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full"
-                      style={{ width: "98%" }}
-                    ></div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Client Satisfaction</span>
-                    <span className="text-2xl font-bold text-blue-600">
-                      100%
-                    </span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full"
-                      style={{ width: "100%" }}
-                    ></div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-600">On-Time Delivery</span>
-                    <span className="text-2xl font-bold text-blue-600">
-                      95%
-                    </span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full"
-                      style={{ width: "95%" }}
-                    ></div>
+
+                  {/* Decorative Elements */}
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-orange-400 rounded-full opacity-80"></div>
+                  <div className="absolute bottom-6 left-8 w-6 h-6 bg-blue-500 rounded-full opacity-60"></div>
+                  <div className="absolute top-1/2 right-8 w-4 h-4 bg-green-400 rounded-full opacity-70"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Process Steps */}
+            <div className="space-y-8">
+              {steps.map((step, index) => (
+                <div key={index} className="relative">
+                  {/* Connecting Line */}
+                  {index < steps.length - 1 && (
+                    <div className="absolute left-6 top-16 w-0.5 h-16 bg-gray-200"></div>
+                  )}
+
+                  <div className="flex items-start space-x-6">
+                    {/* Step Icon */}
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                        {step.icon}
+                      </div>
+                    </div>
+
+                    {/* Step Content */}
+                    <div className="flex-1">
+                      <div className="mb-2">
+                        <span className="text-sm font-semibold text-blue-600 tracking-wide">
+                          STEP {step.number}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
+              ))}
+
+              {/* CTA Button */}
+              <div className="pt-8">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2 shadow-lg">
+                  <span>Schedule a Call</span>
+                  <ArrowRight className="w-5 h-5" />
+                </button>
               </div>
             </div>
           </div>
@@ -496,7 +707,7 @@ const KKITSolution = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      {/* <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -543,7 +754,7 @@ const KKITSolution = () => {
             <p>&copy; 2025 KK-IT-SOLUTION. All rights reserved.</p>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };
