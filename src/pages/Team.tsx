@@ -56,7 +56,7 @@ const boardMembers = [
     bio: "Spearheading lead generation strategies and managing client acquisition processes.",
     expertise: ["Lead Generation", "Client Relations", "Sales Strategy"],
     experience: "8+ years",
-    image: "subtain.jpeg",
+    image: "anees.jpeg",
   },
   {
     name: "Mr. Gulam Hassan",
@@ -112,7 +112,7 @@ const employees = [
     skills: ["React Native", "Full Stack", "Mobile", "Web"],
     experience: "6 years",
     location: "Development Team",
-    image: "saad.jpeg",
+    image: "kamil.jpeg",
   },
   {
     name: "Mr. Hassan Raza",
@@ -130,7 +130,7 @@ const employees = [
     skills: ["React Native", "Mobile Development", "JavaScript", "iOS"],
     experience: "2 years",
     location: "Mobile Team",
-    image: "saad.jpeg",
+    image: "saeed.jpeg",
   },
   {
     name: "Mr. Shameer Shahid",
@@ -139,7 +139,7 @@ const employees = [
     skills: ["Backend", "API", "Database", "Server"],
     experience: "3 years",
     location: "Development Team",
-    image: "saad.jpeg",
+    image: "shameer.jpeg",
   },
   {
     name: "Mr. Zeeshan",
@@ -257,7 +257,7 @@ const employees = [
     ],
     experience: "3 years",
     location: "Mobile Team",
-    image: "saad.jpeg",
+    image: "yousuf.jpeg",
   },
 ];
 

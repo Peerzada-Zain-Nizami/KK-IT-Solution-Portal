@@ -3,18 +3,11 @@ import {
   ArrowRight,
   Zap,
   Users,
-  Trophy,
-  Shield,
-  Heart,
   Target,
   Code,
   Smartphone,
-  Globe,
   ChevronDown,
-  Menu,
-  X,
   Star,
-  Check,
   Cloud,
   Database,
   BarChart3,
@@ -24,13 +17,29 @@ import {
   Monitor,
   Headphones,
   Phone,
+  ChevronLeft,
+  ChevronRight,
+  TestTube,
+  Rocket,
+  MessageSquare,
 } from "lucide-react";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import Slider from "react-slick";
-// For navigation arrows
-
-// Import Bootstrap Carousel
 import Carousel from "react-bootstrap/Carousel";
+import Banner from "../components/Banner";
+
+// Define LogoImage component
+const LogoImage = ({ src, fallbackSrc, alt, className }: any) => {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      onError={(e) => {
+        e.target.onerror = null;
+        e.target.src = fallbackSrc;
+      }}
+    />
+  );
+};
 
 const steps = [
   {
@@ -75,7 +84,9 @@ const ExampleCarouselImage = ({ text }: any) => (
 const KKITSolution = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
 
+  // Scroll handler
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -84,6 +95,73 @@ const KKITSolution = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const workflowSteps = [
+    {
+      id: 1,
+      title: "Discovery & Planning",
+      description:
+        "We analyze your requirements and create a detailed project roadmap",
+      icon: <Users className="w-6 h-6" />,
+      details: [
+        "Requirements gathering",
+        "Market research",
+        "Technical feasibility",
+        "Project timeline",
+      ],
+    },
+    {
+      id: 2,
+      title: "Design & Prototyping",
+      description: "Creating intuitive and engaging user experiences",
+      icon: <Palette className="w-6 h-6" />,
+      details: [
+        "UI/UX design",
+        "Wireframing",
+        "Interactive prototypes",
+        "Design system",
+      ],
+    },
+    {
+      id: 3,
+      title: "Development",
+      description:
+        "Building robust and scalable solutions using latest technologies",
+      icon: <Code className="w-6 h-6" />,
+      details: [
+        "Frontend development",
+        "Backend architecture",
+        "Database design",
+        "API integration",
+      ],
+    },
+    {
+      id: 4,
+      title: "Testing & QA",
+      description:
+        "Ensuring quality and performance through comprehensive testing",
+      icon: <TestTube className="w-6 h-6" />,
+      details: [
+        "Unit testing",
+        "Integration testing",
+        "Performance testing",
+        "Security audit",
+      ],
+    },
+    {
+      id: 5,
+      title: "Launch & Support",
+      description: "Deploying your solution and providing ongoing maintenance",
+      icon: <Rocket className="w-6 h-6" />,
+      details: [
+        "Production deployment",
+        "Performance monitoring",
+        "24/7 support",
+        "Regular updates",
+      ],
+    },
+  ];
+
+  // Services Data
   const services = [
     {
       icon: <Code className="w-8 h-8" />,
@@ -209,95 +287,218 @@ const KKITSolution = () => {
     },
   ];
 
-  const features = [
-    "24/7 Technical Support",
-    "Scalable Solutions",
-    "Modern Technology Stack",
-    "Agile Development Process",
-    "Quality Assurance",
-    "Post-Launch Maintenance",
+  // AI Services
+  const aiServices = [
+    {
+      name: "Bing",
+      logo: "https://logos-world.net/wp-content/uploads/2023/08/Bing-Logo.png ",
+      fallbackLogo: "https://img.icons8.com/color/96/bing.png ",
+      description: "Microsoft's AI-powered search engine",
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-50",
+    },
+    {
+      name: "ChatGPT",
+      logo: "https://logos-world.net/wp-content/uploads/2023/02/ChatGPT-Logo.png ",
+      fallbackLogo: "https://img.icons8.com/color/96/chatgpt.png ",
+      description: "OpenAI's conversational AI assistant",
+      color: "from-green-500 to-green-600",
+      bgColor: "bg-green-50",
+    },
+    {
+      name: "Gemini",
+      logo: "https://logos-world.net/wp-content/uploads/2024/02/Gemini-Logo.png ",
+      fallbackLogo: "https://img.icons8.com/color/96/google-logo.png ",
+      description: "Google's advanced AI model",
+      color: "from-purple-500 to-purple-600",
+      bgColor: "bg-purple-50",
+    },
+    {
+      name: "OpenAI",
+      logo: "https://logos-world.net/wp-content/uploads/2023/02/OpenAI-Logo.png ",
+      fallbackLogo:
+        "https://img.icons8.com/color/96/artificial-intelligence.png ",
+      description: "Leading AI research company",
+      color: "from-gray-700 to-gray-800",
+      bgColor: "bg-gray-50",
+    },
+    {
+      name: "Claude",
+      logo: "https://www.anthropic.com/images/claude-horizontal-mark.svg ",
+      fallbackLogo: "https://img.icons8.com/color/96/robot.png ",
+      description: "Anthropic's powerful AI assistant",
+      color: "from-orange-500 to-orange-600",
+      bgColor: "bg-orange-50",
+    },
+    {
+      name: "Hugging Face",
+      logo: "https://huggingface.co/landing/assets/huggingface_logo.svg ",
+      fallbackLogo: "https://img.icons8.com/color/96/machine-learning.png ",
+      description: "Platform for open-source AI models",
+      color: "from-pink-500 to-pink-600",
+      bgColor: "bg-pink-50",
+    },
+    {
+      name: "Midjourney",
+      logo: "https://cdn.midjourney.com/assets/midjourney-logo-256x256-7e121641.png ",
+      fallbackLogo: "https://img.icons8.com/color/96/paint-palette.png ",
+      description: "AI for creating images from text",
+      color: "from-indigo-500 to-indigo-600",
+      bgColor: "bg-indigo-50",
+    },
+    {
+      name: "Meta AI",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/2023_Meta_AI_Logo.svg ",
+      fallbackLogo: "https://img.icons8.com/color/96/facebook-messenger.png ",
+      description: "Meta's family of large AI models",
+      color: "from-cyan-500 to-cyan-600",
+      bgColor: "bg-cyan-50",
+    },
   ];
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+  const faqData = [
+    {
+      question: "What types of AI solutions does your company offer?",
+      answer:
+        "We offer a range of AI solutions, including chatbots, computer vision, natural language processing, and automation. Our team can help you implement these technologies tailored to your specific business needs.",
+    },
+    {
+      question: "How does your AI development process work?",
+      answer:
+        "Our AI development process involves several stages: requirement analysis, data collection, model training, testing, deployment, and continuous monitoring. We ensure transparency and collaboration throughout the process.",
+    },
+    {
+      question:
+        "Can your AI solutions integrate with my existing infrastructure?",
+      answer:
+        "Yes, our AI solutions are designed to seamlessly integrate with existing systems. We support various integration methods, including APIs, SDKs, and custom integrations, to ensure compatibility with your infrastructure.",
+    },
+    {
+      question: "What makes your AI solutions unique?",
+      answer:
+        "Our AI solutions are unique due to our expertise in leveraging cutting-edge technologies and methodologies. We focus on delivering scalable, secure, and efficient solutions that provide tangible business value.",
+    },
+    {
+      question:
+        "How do you ensure the privacy and security of the AI solutions?",
+      answer:
+        "We prioritize data privacy and security by implementing robust measures such as encryption, access controls, and compliance with industry standards like GDPR and HIPAA. Our solutions are built with security best practices in mind.",
+    },
+    {
+      question: "What support do you offer post-deployment?",
+      answer:
+        "We provide comprehensive post-deployment support, including regular maintenance, updates, and performance monitoring. Our team is available to address any issues and optimize your AI solutions over time.",
+    },
+    {
+      question: "How much does it cost to develop a custom AI solution?",
+      answer:
+        "The cost of developing a custom AI solution varies based on factors such as complexity, scope, and requirements. We offer transparent pricing and can provide a detailed quote after understanding your project needs.",
+    },
+  ];
+
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFAQ = (index: any) => {
+    setOpenIndex(openIndex === index ? null : index);
   };
+
+  const FAQ = () => {
+    return (
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <h2 className="text-3xl font-bold mb-6 text-center">FAQs:</h2>
+        <div className="space-y-2">
+          {faqData.map((item, index) => (
+            <div
+              key={index}
+              className="border border-gray-200 rounded-lg overflow-hidden"
+            >
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full flex justify-between items-center px-4 py-3 bg-white hover:bg-gray-50 transition duration-200 text-left"
+                aria-expanded={openIndex === index}
+              >
+                <span className="text-lg font-medium">{item.question}</span>
+                <svg
+                  className={`w-5 h-5 text-gray-500 transform transition-transform duration-300 ${
+                    openIndex === index ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                className={`transition-all duration-300 ease-in-out ${
+                  openIndex === index
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                <div className="px-4 py-3 bg-gray-50">
+                  <p className="text-gray-700">{item.answer}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  const clients = [
+    { name: "Company One", logo: "1.png" },
+    { name: "Company Two", logo: "2.png" },
+    { name: "Company Three", logo: "3.jpg" },
+    { name: "Company Four", logo: "4.png" },
+    { name: "Company Five", logo: "5.png" },
+    { name: "Company Six", logo: "6.png" },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  const points = ["Design", "Development", "Testing & QA", "Release & maint."];
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === aiServices.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, aiServices.length]);
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex(
+      currentIndex === 0 ? aiServices.length - 1 : currentIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex(
+      currentIndex === aiServices.length - 1 ? 0 : currentIndex + 1
+    );
+  };
+
+  const handleMouseEnter = () => setIsAutoPlaying(false);
+  const handleMouseLeave = () => setIsAutoPlaying(true);
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
-      {/* Header */}
-      {/* <header
-        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">KK</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-800">
-                  KK-IT-SOLUTION
-                </h1>
-                <p className="text-xs text-blue-600">Innovation & Excellence</p>
-              </div>
-            </div>
-            <nav className="hidden md:flex items-center space-x-8">
-              {["Services", "About", "Portfolio", "Contact"].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
-                >
-                  {item}
-                </a>
-              ))}
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl">
-                Get Started
-              </button>
-            </nav>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              {isMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </div>
-      </header> */}
-
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 bg-white z-40 md:hidden">
@@ -321,61 +522,7 @@ const KKITSolution = () => {
         </div>
       )}
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-100">
-        {/* Animated Background */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-          <div
-            className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"
-            style={{ animationDelay: "2s" }}
-          ></div>
-          <div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"
-            style={{ animationDelay: "4s" }}
-          ></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 pt-20 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <Star className="w-4 h-4 mr-2" />
-                Premium IT Solutions
-              </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Transform Your
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
-                  Digital Future
-                </span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
-                Empowering businesses with cutting-edge IT solutions, innovative
-                web development, and strategic digital transformation services.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="group bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
-                  Start Your Project
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300">
-                  View Our Work
-                </button>
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <img
-                src="https://cdn.qwenlm.ai/output/6fed707b-2f31-4adb-995d-390d6e034622/t2i/d3914708-a6ea-48f3-ba2a-ae09e598b2dd/1752501521.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNmZlZDcwN2ItMmYzMS00YWRiLTk5NWQtMzkwZDZlMDM0NjIyIiwicmVzb3VyY2VfaWQiOiIxNzUyNTAxNTIxIiwicmVzb3VyY2VfY2hhdF9pZCI6IjVkYzJmNDIxLTQ0ZGItNDc1YS04YTQ3LTcwZDYxMDM0ZTE4OSJ9.yT7TXmh7sCV6xW5uO531xGM4vwCC2_vU25SdldBQgkw"
-                alt="Hero Illustration"
-                className="w-full max-w-md bg-white rounded-3xl shadow-lg transform transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-          </div>
-        </div>
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-6 h-6 text-blue-600" />
-        </div>
-      </section>
+      <Banner />
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-white">
@@ -465,7 +612,7 @@ const KKITSolution = () => {
             {/* Left Content */}
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Why Choose Sparkix Tech?
+                Why Choose KK-IT-SOLUTIONS ?
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
                 In our steadfast pursuit of seamlessly embracing the future, we
@@ -683,6 +830,275 @@ const KKITSolution = () => {
         </div>
       </section>
 
+      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-extrabold text-gray-900 mb-3">
+              Generative AI Cloud Services
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We are experts in developing solutions with the latest generative
+              AI technologies.
+            </p>
+          </div>
+
+          <div
+            className="relative bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Main Slide Content */}
+            <div className="relative h-[340px] flex items-center justify-center p-8">
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${aiServices[currentIndex].color} opacity-5`}
+              ></div>
+
+              {/* Logo Container */}
+              <div className="relative z-10 text-center max-w-xl">
+                <div className="mb-6 inline-block p-5 rounded-2xl bg-gray-50 shadow-md transform transition-transform hover:scale-105">
+                  <LogoImage
+                    src={aiServices[currentIndex].logo}
+                    fallbackSrc={aiServices[currentIndex].fallbackLogo}
+                    alt={aiServices[currentIndex].name}
+                    className="w-24 h-24 object-contain drop-shadow-md"
+                  />
+                </div>
+
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
+                  {aiServices[currentIndex].name}
+                </h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  {aiServices[currentIndex].description}
+                </p>
+              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={goToPrevious}
+                className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 rounded-full p-3 shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                onClick={goToNext}
+                className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 rounded-full p-3 shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none"
+                aria-label="Next slide"
+              >
+                <ChevronRight size={24} />
+              </button>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center space-x-3 py-4">
+              {aiServices.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? "bg-blue-600 w-8"
+                      : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Thumbnail Navigation */}
+          <div className="flex justify-center gap-4 mt-6 flex-wrap">
+            {aiServices.map((service, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-300 ease-in-out transform hover:scale-105 border ${
+                  index === currentIndex
+                    ? "bg-blue-50 border-blue-300 shadow-md scale-105"
+                    : "bg-white border-gray-200 hover:border-gray-300"
+                }`}
+              >
+                <LogoImage
+                  src={service.logo}
+                  fallbackSrc={service.fallbackLogo}
+                  alt={service.name}
+                  className="w-8 h-8 object-contain"
+                />
+                <span
+                  className={`font-medium ${
+                    index === currentIndex ? "text-blue-700" : "text-gray-600"
+                  }`}
+                >
+                  {service.name}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+              Trusted by Industry Leaders
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We're proud to collaborate with some of the world's most
+              innovative companies.
+            </p>
+          </div>
+
+          {/* Client Logos Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            {clients.map((client, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center p-4 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+              >
+                <img
+                  src={`src/assets/images/kk-team/${client.logo}`}
+                  alt={`${client.name} Logo`}
+                  className="h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Our Development
+              <span className="text-blue-600"> Workflow</span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              From concept to launch, we follow a proven methodology that
+              ensures your project's success through every phase of development.
+            </p>
+          </div>
+
+          {/* Workflow Steps */}
+          <div className="relative">
+            {/* Progress Line */}
+            <div className="absolute left-8 top-24 bottom-0 w-0.5 bg-blue-200 hidden md:block"></div>
+
+            <div className="space-y-8">
+              {workflowSteps.map((step, index) => (
+                <div
+                  key={step.id}
+                  className={`relative group cursor-pointer transition-all duration-500 ${
+                    activeStep === index
+                      ? "transform scale-105"
+                      : "hover:transform hover:scale-102"
+                  }`}
+                  onClick={() =>
+                    setActiveStep(activeStep === index ? -1 : index)
+                  }
+                >
+                  <div
+                    className={`flex items-start space-x-6 p-8 rounded-2xl shadow-lg transition-all duration-300 ${
+                      activeStep === index
+                        ? "bg-blue-600 text-white shadow-2xl"
+                        : "bg-white text-gray-900 hover:shadow-xl hover:bg-blue-50"
+                    }`}
+                  >
+                    {/* Step Number & Icon */}
+                    <div className="flex-shrink-0">
+                      <div
+                        className={`relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
+                          activeStep === index
+                            ? "bg-white text-blue-600 shadow-lg"
+                            : "bg-blue-100 text-blue-600 group-hover:bg-blue-200"
+                        }`}
+                      >
+                        {step.icon}
+                        <div
+                          className={`absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+                            activeStep === index
+                              ? "bg-blue-600 text-white"
+                              : "bg-blue-600 text-white"
+                          }`}
+                        >
+                          {step.id}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-2xl font-bold mb-2">
+                          {step.title}
+                        </h3>
+                        <ChevronRight
+                          className={`w-5 h-5 transition-transform duration-300 ${
+                            activeStep === index ? "rotate-90" : ""
+                          }`}
+                        />
+                      </div>
+                      <p className="text-lg mb-4 opacity-90">
+                        {step.description}
+                      </p>
+
+                      {/* Expandable Details */}
+                      <div
+                        className={`overflow-hidden transition-all duration-500 ${
+                          activeStep === index
+                            ? "max-h-96 opacity-100"
+                            : "max-h-0 opacity-0"
+                        }`}
+                      >
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 pt-6 border-t border-opacity-30 border-current">
+                          {step.details.map((detail, idx) => (
+                            <div
+                              key={idx}
+                              className="flex items-center space-x-3"
+                            >
+                              <div className="w-2 h-2 rounded-full bg-current opacity-60"></div>
+                              <span className="text-sm font-medium">
+                                {detail}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-20 text-center">
+            <div className="bg-white rounded-3xl shadow-xl p-12 max-w-4xl mx-auto">
+              <div className="flex items-center justify-center mb-6">
+                <MessageSquare className="w-12 h-12 text-blue-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Ready to Start Your Project?
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                Let's discuss your ideas and create something amazing together.
+                Our team is ready to bring your vision to life.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
+                  Start Your Project
+                </button>
+                <button className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-colors duration-200">
+                  View Portfolio
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10"></div>
@@ -706,55 +1122,11 @@ const KKITSolution = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      {/* <footer className="bg-gray-900 text-white py-12">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">KK</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">KK-IT-SOLUTION</h3>
-                  <p className="text-sm text-gray-400">
-                    Innovation & Excellence
-                  </p>
-                </div>
-              </div>
-              <p className="text-gray-400 mb-4">
-                Transforming businesses through innovative technology solutions
-                and digital excellence.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <div className="space-y-2">
-                {["Services", "About", "Portfolio", "Contact"].map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    className="text-gray-400 hover:text-white transition-colors block"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-              <div className="space-y-2 text-gray-400">
-                <p>Email: info@kk-it-solution.com</p>
-                <p>Phone: +1 (555) 123-4567</p>
-                <p>Address: 123 Tech Street, Digital City</p>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 KK-IT-SOLUTION. All rights reserved.</p>
-          </div>
+          <FAQ />
         </div>
-      </footer> */}
+      </section>
     </div>
   );
 };

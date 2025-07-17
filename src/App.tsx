@@ -12,6 +12,10 @@ import Team from "./pages/Team";
 import Careers from "./pages/Careers";
 import Portfolio from "./pages/Portfolio";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 function App() {
   return (
     <Router>
