@@ -1,6 +1,7 @@
 import React from "react";
 import { Code2, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "../assets/images/kk-team/logo.png";
 
 const Footer: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-2 mb-4">
               {/* <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg"> */}
               <img
-                src="src/assets/images/kk-team/logo.png"
+                src={logo}
                 alt="KK-IT-SOLUTIONS Logo"
                 className="w-8 h-8 object-contain"
               />

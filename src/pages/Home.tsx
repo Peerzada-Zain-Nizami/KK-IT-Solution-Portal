@@ -25,6 +25,13 @@ import {
 } from "lucide-react";
 import Carousel from "react-bootstrap/Carousel";
 import Banner from "../components/Banner";
+import aiImg from "../assets/images/kk-team/ai.jpg";
+import clientImg1 from "../assets/images/kk-team/1.png";
+import clientImg2 from "../assets/images/kk-team/2.png";
+import clientImg3 from "../assets/images/kk-team/3.jpg";
+import clientImg4 from "../assets/images/kk-team/4.png";
+import clientImg5 from "../assets/images/kk-team/5.png";
+import clientImg6 from "../assets/images/kk-team/6.png";
 
 // Define LogoImage component
 const LogoImage = ({ src, fallbackSrc, alt, className }: any) => {
@@ -454,12 +461,12 @@ const KKITSolution = () => {
   };
 
   const clients = [
-    { name: "Company One", logo: "1.png" },
-    { name: "Company Two", logo: "2.png" },
-    { name: "Company Three", logo: "3.jpg" },
-    { name: "Company Four", logo: "4.png" },
-    { name: "Company Five", logo: "5.png" },
-    { name: "Company Six", logo: "6.png" },
+    { name: "Company One", logo: clientImg1 },
+    { name: "Company Two", logo: clientImg2 },
+    { name: "Company Three", logo: clientImg3 },
+    { name: "Company Four", logo: clientImg4 },
+    { name: "Company Five", logo: clientImg5 },
+    { name: "Company Six", logo: clientImg6 },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -634,7 +641,7 @@ const KKITSolution = () => {
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden">
                 <img
-                  src="src/assets/images/kk-team/ai.jpg"
+                  src={aiImg}
                   alt=""
                   className="w-full h-full object-cover rounded-2xl"
                 />
@@ -901,7 +908,7 @@ const KKITSolution = () => {
                 className="flex items-center justify-center p-4 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 <img
-                  src={`src/assets/images/kk-team/${client.logo}`}
+                  src={client.logo}
                   alt={`${client.name} Logo`}
                   className="h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
                 />
