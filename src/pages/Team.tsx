@@ -9,7 +9,6 @@ import {
   User,
   Briefcase,
   Users,
-  Filter,
   Search,
 } from "lucide-react";
 
@@ -48,7 +47,7 @@ const boardMembers = [
     bio: "Overseeing administrative operations and ensuring organizational efficiency across all departments.",
     expertise: ["Administration", "Operations Management", "Team Leadership"],
     experience: "15+ years",
-    image: "saad.jpeg",
+    image: "sam.png",
   },
   {
     name: "Mr. Anees",
@@ -85,7 +84,7 @@ const employees = [
     skills: ["Photoshop", "Illustrator", "Design", "Creative Suite"],
     experience: "3 years",
     location: "Graphics Department",
-    image: "subtain.jpeg",
+    image: "sam.png",
   },
   {
     name: "Mr. Asim",
@@ -94,16 +93,7 @@ const employees = [
     skills: ["React", "JavaScript", "HTML", "CSS"],
     experience: "4 years",
     location: "Development Team",
-    image: "subtain.jpeg",
-  },
-  {
-    name: "Mr. Hashir",
-    role: "Backend Developer",
-    department: "Development",
-    skills: ["Node.js", "Express", "Database", "Server Management"],
-    experience: "4 years",
-    location: "Development Team",
-    image: "subtain.jpeg",
+    image: "sam.png",
   },
   {
     name: "Mr. Kamil",
@@ -121,7 +111,7 @@ const employees = [
     skills: ["React", "Node.js", "MongoDB", "Full Stack"],
     experience: "5 years",
     location: "Development Team",
-    image: "saad.jpeg",
+    image: "sam.png",
   },
   {
     name: "Mr. Saeed",
@@ -148,7 +138,7 @@ const employees = [
     skills: ["React Native", "Mobile Apps", "Flutter", "Android"],
     experience: "4 years",
     location: "Mobile Team",
-    image: "saad.jpeg",
+    image: "sam.png",
   },
   {
     name: "Mr. Zuhair Abbas",
@@ -175,7 +165,7 @@ const employees = [
     skills: ["Software Development", "Programming", "Testing", "Debugging"],
     experience: "3 years",
     location: "Development Team",
-    image: "saad.jpeg",
+    image: "sam.png",
   },
   {
     name: "Mr. Suleman",

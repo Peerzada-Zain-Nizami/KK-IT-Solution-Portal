@@ -633,67 +633,11 @@ const KKITSolution = () => {
             {/* Right Side - World Map */}
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden">
-                {/* Simplified World Map SVG */}
-                <svg viewBox="0 0 800 400" className="w-full h-64 mb-4">
-                  {/* Background */}
-                  <rect width="800" height="400" fill="#f8f9fa" />
-
-                  {/* Continents - simplified shapes */}
-                  {/* North America */}
-                  <path
-                    d="M50 100 L200 80 L250 120 L280 180 L200 200 L100 220 L50 180 Z"
-                    fill="#6b7280"
-                    opacity="0.7"
-                  />
-
-                  {/* South America */}
-                  <path
-                    d="M180 220 L220 240 L240 320 L200 350 L160 320 L150 260 Z"
-                    fill="#6b7280"
-                    opacity="0.7"
-                  />
-
-                  {/* Europe */}
-                  <path
-                    d="M350 80 L420 70 L450 100 L430 130 L380 140 L340 120 Z"
-                    fill="#3b82f6"
-                    opacity="0.8"
-                  />
-
-                  {/* Africa */}
-                  <path
-                    d="M380 140 L450 150 L470 250 L440 320 L400 340 L360 300 L350 200 Z"
-                    fill="#6b7280"
-                    opacity="0.7"
-                  />
-
-                  {/* Asia */}
-                  <path
-                    d="M450 60 L650 50 L700 100 L720 150 L650 180 L500 160 L450 120 Z"
-                    fill="#3b82f6"
-                    opacity="0.8"
-                  />
-
-                  {/* Australia */}
-                  <path
-                    d="M600 280 L680 270 L700 300 L680 320 L620 310 Z"
-                    fill="#6b7280"
-                    opacity="0.7"
-                  />
-
-                  {/* Additional highlighted regions */}
-                  <path
-                    d="M50 100 L200 80 L250 120 L200 140 L100 150 L50 130 Z"
-                    fill="#3b82f6"
-                    opacity="0.8"
-                  />
-
-                  {/* Decorative elements */}
-                  <circle cx="100" cy="50" r="2" fill="#3b82f6" opacity="0.6" />
-                  <circle cx="300" cy="60" r="2" fill="#3b82f6" opacity="0.6" />
-                  <circle cx="500" cy="40" r="2" fill="#3b82f6" opacity="0.6" />
-                  <circle cx="650" cy="80" r="2" fill="#3b82f6" opacity="0.6" />
-                </svg>
+                <img
+                  src="src/assets/images/kk-team/ai.jpg"
+                  alt=""
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
             </div>
           </div>

@@ -7,21 +7,27 @@ const Footer: React.FC = () => {
     <footer className="bg-white text-gray-800 py-12 px-6 border-t border-gray-200">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand Column */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg">
-                <Code2 className="w-6 h-6 text-white" />
-              </div>
+              {/* <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg"> */}
+              <img
+                src="src/assets/images/kk-team/logo.png"
+                alt="KK-IT-SOLUTIONS Logo"
+                className="w-8 h-8 object-contain"
+              />
+              {/* </div> */}
               <span className="text-xl font-bold text-blue-600">
                 KK-IT-SOLUTIONS
               </span>
             </div>
-            <p className="text-gray-600">
+            <p className="text-gray-600 leading-relaxed">
               Transforming ideas into powerful digital solutions with
               cutting-edge technology and innovative design.
             </p>
           </div>
 
+          {/* Services Column */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-900">
               Services
@@ -62,6 +68,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
+          {/* Company Column */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-900">
               Company
@@ -102,32 +109,37 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
+          {/* Contact Column */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-900">
               Contact
             </h3>
-            <div className="space-y-2 text-gray-600">
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-600" />
+            <div className="space-y-3 text-gray-600">
+              <div className="flex items-start gap-2">
+                <Mail className="w-4 h-4 text-blue-600 mt-0.5" />
                 <span>info@kkitsolutions.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-blue-600" />
                 <span>+92 300 5751689</span>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-blue-600" />
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-blue-600 mt-0.5" />
                 <span>
-                  Green Homes Colony house # 49 Nawab Pur Road Near 8 number
-                  chungi
+                  Green Homes Colony, House #49, Nawab Pur Road, Near 8 Number
+                  Chungi
                 </span>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Footer Bottom */}
         <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500">
-          <p>&copy; 2024 CodeCraft Solutions. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} KK-IT-SOLUTIONS. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>
