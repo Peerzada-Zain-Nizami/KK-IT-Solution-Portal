@@ -6,7 +6,6 @@ import Services from "./pages/Services";
 import Features from "./pages/Features";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import "bootstrap/dist/css/bootstrap.min.css";
 import NotFound from "./pages/NotFound";
 import Team from "./pages/Team";
 import Careers from "./pages/Careers";
@@ -29,9 +28,9 @@ function App() {
             <Route path="/features" element={<Features />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
