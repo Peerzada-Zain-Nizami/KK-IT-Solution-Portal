@@ -11,7 +11,22 @@ import {
   Users,
   Search,
 } from "lucide-react";
-import yousufImg from "../assets/images/kk-team/yousuf.jpeg";
+import yousuf from "../assets/images/kk-team/yousuf.jpeg";
+import dummy from "../assets/images/kk-team/sam.png";
+import anees from "../assets/images/kk-team/anees.jpeg";
+import subtain from "../assets/images/kk-team/subtain.png";
+import hassanMK from "../assets/images/kk-team/hassanMK.jpeg";
+import zuhair from "../assets/images/kk-team/zuhair.jpg";
+import shameer from "../assets/images/kk-team/shameer.jpeg";
+import saeed from "../assets/images/kk-team/saeed.jpeg";
+import kamil from "../assets/images/kk-team/kamil.jpeg";
+import q_saif from "../assets/images/kk-team/q_saif.jpeg";
+import moeen from "../assets/images/kk-team/moeen.jpeg";
+import saad from "../assets/images/kk-team/saad.jpeg";
+import saif from "../assets/images/kk-team/saif.jpeg";
+import zul from "../assets/images/kk-team/zul.jpeg";
+import john from "../assets/images/kk-team/john.jpeg";
+import qazi from "../assets/images/kk-team/qazi.jpeg";
 
 const ceo = {
   name: "Mrs. Anah",
@@ -26,7 +41,7 @@ const ceo = {
     github: "#",
     email: "anah@company.com",
   },
-  image: "hr.png",
+  image: dummy,
 };
 
 const boardMembers = [
@@ -40,7 +55,7 @@ const boardMembers = [
       "Market Analysis",
     ],
     experience: "12+ years",
-    image: "sam.png",
+    image: dummy,
   },
   {
     name: "Mr. Arif Sb",
@@ -48,7 +63,7 @@ const boardMembers = [
     bio: "Overseeing administrative operations and ensuring organizational efficiency across all departments.",
     expertise: ["Administration", "Operations Management", "Team Leadership"],
     experience: "15+ years",
-    image: "sam.png",
+    image: dummy,
   },
   {
     name: "Mr. Anees",
@@ -56,7 +71,7 @@ const boardMembers = [
     bio: "Spearheading lead generation strategies and managing client acquisition processes.",
     expertise: ["Lead Generation", "Client Relations", "Sales Strategy"],
     experience: "8+ years",
-    image: "anees.jpeg",
+    image: anees,
   },
   {
     name: "Mr. Gulam Hassan",
@@ -64,7 +79,7 @@ const boardMembers = [
     bio: "Expert in lead generation and client development with proven track record in business growth.",
     expertise: ["Lead Generation", "Business Development", "Client Management"],
     experience: "9+ years",
-    image: "hassanMK.jpeg",
+    image: hassanMK,
   },
 ];
 
@@ -76,7 +91,7 @@ const employees = [
     skills: ["Node.js", "Python", "MongoDB", "API Development"],
     experience: "5 years",
     location: "Development Team",
-    image: "subtain.png",
+    image: subtain,
   },
   {
     name: "Mr. Ali",
@@ -85,7 +100,7 @@ const employees = [
     skills: ["Photoshop", "Illustrator", "Design", "Creative Suite"],
     experience: "3 years",
     location: "Graphics Department",
-    image: "sam.png",
+    image: dummy,
   },
   {
     name: "Mr. Asim",
@@ -94,7 +109,7 @@ const employees = [
     skills: ["React", "JavaScript", "HTML", "CSS"],
     experience: "4 years",
     location: "Development Team",
-    image: "sam.png",
+    image: dummy,
   },
   {
     name: "Mr. Kamil",
@@ -103,7 +118,7 @@ const employees = [
     skills: ["React Native", "Full Stack", "Mobile", "Web"],
     experience: "6 years",
     location: "Development Team",
-    image: "kamil.jpeg",
+    image: kamil,
   },
   {
     name: "Mr. Hassan Raza",
@@ -112,7 +127,7 @@ const employees = [
     skills: ["React", "Node.js", "MongoDB", "Full Stack"],
     experience: "5 years",
     location: "Development Team",
-    image: "sam.png",
+    image: dummy,
   },
   {
     name: "Mr. Saeed",
@@ -121,7 +136,7 @@ const employees = [
     skills: ["React Native", "Mobile Development", "JavaScript", "iOS"],
     experience: "2 years",
     location: "Mobile Team",
-    image: "saeed.jpeg",
+    image: saeed,
   },
   {
     name: "Mr. Shameer Shahid",
@@ -130,7 +145,7 @@ const employees = [
     skills: ["Backend", "API", "Database", "Server"],
     experience: "3 years",
     location: "Development Team",
-    image: "shameer.jpeg",
+    image: shameer,
   },
   {
     name: "Mr. Zeeshan",
@@ -139,7 +154,7 @@ const employees = [
     skills: ["React Native", "Mobile Apps", "Flutter", "Android"],
     experience: "4 years",
     location: "Mobile Team",
-    image: "sam.png",
+    image: dummy,
   },
   {
     name: "Mr. Zuhair Abbas",
@@ -148,7 +163,7 @@ const employees = [
     skills: ["React Native", "Senior Development", "Team Lead", "Architecture"],
     experience: "7 years",
     location: "Mobile Team",
-    image: "zuhair.jpg",
+    image: zuhair,
   },
   {
     name: "Mr. Saif ul Rehman",
@@ -157,7 +172,7 @@ const employees = [
     skills: ["Mobile Engineering", "React Native", "iOS", "Android"],
     experience: "4 years",
     location: "Mobile Team",
-    image: "q_saif.jpeg",
+    image: q_saif,
   },
   {
     name: "Mr. Nouman Muzamil",
@@ -166,7 +181,7 @@ const employees = [
     skills: ["Software Development", "Programming", "Testing", "Debugging"],
     experience: "3 years",
     location: "Development Team",
-    image: "sam.png",
+    image: dummy,
   },
   {
     name: "Mr. Suleman",
@@ -180,7 +195,7 @@ const employees = [
     ],
     experience: "8 years",
     location: "Mobile Team",
-    image: "john.jpeg",
+    image: john,
   },
   {
     name: "Mr. Moeen U Din",
@@ -189,7 +204,7 @@ const employees = [
     skills: ["React Native", "Frontend", "JavaScript", "UI Development"],
     experience: "3 years",
     location: "Development Team",
-    image: "moeen.jpeg",
+    image: moeen,
   },
   {
     name: "Mr. Zulqernain",
@@ -198,7 +213,7 @@ const employees = [
     skills: ["Full Stack", "Web Development", "Backend", "Frontend"],
     experience: "5 years",
     location: "Development Team",
-    image: "zul.jpeg",
+    image: zul,
   },
   {
     name: "Mr. Qazi Shafi",
@@ -207,7 +222,7 @@ const employees = [
     skills: ["React.js", "Next.js", "Web Development", "JavaScript"],
     experience: "4 years",
     location: "Development Team",
-    image: "qazi.jpeg",
+    image: qazi,
   },
   {
     name: "Mr. Saad",
@@ -216,7 +231,7 @@ const employees = [
     skills: ["React Native", "Senior Development", "Mobile", "Team Leadership"],
     experience: "6 years",
     location: "Mobile Team",
-    image: "saad.jpeg",
+    image: saad,
   },
   {
     name: "Mr. Saif ud din",
@@ -225,7 +240,7 @@ const employees = [
     skills: ["Backend Development", "API", "Database", "Server"],
     experience: "3 years",
     location: "Development Team",
-    image: "saif.jpeg",
+    image: saif,
   },
   {
     name: "Miss Sam",
@@ -234,7 +249,7 @@ const employees = [
     skills: ["Full Stack", "Web Development", "React", "Node.js"],
     experience: "4 years",
     location: "Development Team",
-    image: "sam.png",
+    image: dummy,
   },
   {
     name: "Mr. Yousaf",
@@ -248,7 +263,7 @@ const employees = [
     ],
     experience: "3 years",
     location: "Mobile Team",
-    image: "yousuf.jpeg",
+    image: yousuf,
   },
 ];
 
@@ -338,7 +353,7 @@ export default function Team() {
               <div className="flex-shrink-0">
                 <div className="relative">
                   <img
-                    src={`src/assets/images/kk-team/${ceo.image}`}
+                    src={ceo.image}
                     alt={ceo.name}
                     className="w-40 h-40 rounded-full object-cover shadow-xl ring-4 ring-blue-100"
                     style={{ objectFit: "initial" }}
@@ -444,7 +459,7 @@ export default function Team() {
                   <div className="flex-shrink-0">
                     <div className="relative">
                       <img
-                        src={`src/assets/images/kk-team/${member.image}`}
+                        src={member.image}
                         alt={member.name}
                         className="w-24 h-24 rounded-full object-cover shadow-lg ring-2 ring-blue-100"
                         style={{ objectFit: "initial" }}
@@ -532,7 +547,7 @@ export default function Team() {
                 <div className="text-center">
                   <div className="relative mb-6">
                     <img
-                      src={yousufImg}
+                      src={employee.image}
                       alt={employee.name}
                       className="w-24 h-24 rounded-full object-cover mx-auto shadow-lg ring-2 ring-blue-100"
                       style={{ objectFit: "initial" }}
