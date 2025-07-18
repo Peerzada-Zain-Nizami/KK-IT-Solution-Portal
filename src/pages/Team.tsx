@@ -11,6 +11,7 @@ import {
   Users,
   Search,
 } from "lucide-react";
+import yousufImg from "../assets/images/kk-team/yousuf.jpeg";
 
 const ceo = {
   name: "Mrs. Anah",
@@ -532,7 +533,7 @@ export default function Team() {
                 <div className="text-center">
                   <div className="relative mb-6">
                     <img
-                      src={`src/assets/images/kk-team/${employee.image}`}
+                      src={yousufImg}
                       alt={employee.name}
                       className="w-24 h-24 rounded-full object-cover mx-auto shadow-lg ring-2 ring-blue-100"
                       style={{ objectFit: "initial" }}
