@@ -14,6 +14,7 @@ import Portfolio from "./pages/Portfolio";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ProjectDetails from "./pages/ProjectDetails";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/portfolio/:id" element={<ProjectDetails />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

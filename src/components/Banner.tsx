@@ -1,19 +1,21 @@
 import React from "react";
 
 const Banner = () => {
+  const isMobile = window.innerWidth < 768;
+
+  // Responsive styles
   const containerStyle = {
     minHeight: "100vh",
     background: "#000814",
-    // backgroundImage:
-    // 'url("https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif")',
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundBlendMode: "overlay",
     display: "flex",
+    flexDirection: isMobile ? "column" : "row",
+    justifyContent: isMobile ? "center" : "space-between",
     alignItems: "center",
-    justifyContent: "space-between",
-    padding: "60px 80px",
+    padding: isMobile ? "40px 20px" : "60px 80px",
     position: "relative",
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
@@ -34,24 +36,25 @@ const Banner = () => {
   const contentStyle = {
     position: "relative",
     zIndex: 2,
-    flex: 1,
-    maxWidth: "600px",
+    textAlign: isMobile ? "center" : "left",
+    maxWidth: isMobile ? "100%" : "600px",
+    marginTop: isMobile ? "50px" : "105px",
   };
 
   const titleStyle = {
-    fontSize: "5.5rem",
+    fontSize: isMobile ? "3rem" : "5.5rem",
     fontWeight: "800",
     color: "#2196F3",
-    marginBottom: "30px",
+    marginBottom: isMobile ? "20px" : "30px",
     lineHeight: "1.1",
     textShadow: "2px 2px 8px rgba(0, 0, 0, 0.8)",
     letterSpacing: "-0.02em",
   };
 
   const subtitleStyle = {
-    fontSize: "1.8rem",
+    fontSize: isMobile ? "1.2rem" : "1.8rem",
     color: "#ffffff",
-    marginBottom: "50px",
+    marginBottom: isMobile ? "30px" : "50px",
     fontWeight: "400",
     textShadow: "1px 1px 4px rgba(0, 0, 0, 0.8)",
     opacity: "0.9",
@@ -60,8 +63,8 @@ const Banner = () => {
   const buttonStyle = {
     background: "linear-gradient(45deg, #2196F3, #64B5F6)",
     color: "white",
-    padding: "20px 50px",
-    fontSize: "1.3rem",
+    padding: isMobile ? "15px 30px" : "20px 50px",
+    fontSize: isMobile ? "1rem" : "1.3rem",
     fontWeight: "700",
     border: "none",
     borderRadius: "60px",
@@ -78,39 +81,41 @@ const Banner = () => {
     position: "relative",
     zIndex: 2,
     display: "flex",
-    gap: "20px",
-    alignItems: "center",
-    transform: "perspective(1000px) rotateY(-5deg)",
+    gap: isMobile ? "15px" : "20px",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    transform: isMobile ? "none" : "perspective(1000px) rotateY(-5deg)",
+    marginTop: "105px",
   };
 
   // Mac Laptop Style
   const macLaptopStyle = {
-    width: "320px",
-    height: "200px",
+    width: isMobile ? "220px" : "320px",
+    height: isMobile ? "140px" : "200px",
     backgroundColor: "#d4d4d4",
-    borderRadius: "12px",
-    padding: "8px",
-    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5)",
+    borderRadius: isMobile ? "10px" : "12px",
+    padding: isMobile ? "6px" : "8px",
+    boxShadow: "0 15px 30px rgba(0, 0, 0, 0.5)",
     position: "relative",
-    marginBottom: "40px",
+    marginBottom: isMobile ? "20px" : "40px",
   };
 
   const macScreenStyle = {
     width: "100%",
     height: "100%",
     backgroundColor: "#000",
-    borderRadius: "8px",
+    borderRadius: isMobile ? "6px" : "8px",
     overflow: "hidden",
     position: "relative",
   };
 
   const macStandStyle = {
-    width: "100px",
-    height: "20px",
+    width: isMobile ? "70px" : "100px",
+    height: isMobile ? "15px" : "20px",
     backgroundColor: "#d4d4d4",
     borderRadius: "0 0 20px 20px",
     position: "absolute",
-    bottom: "-20px",
+    bottom: isMobile ? "-15px" : "-20px",
     left: "50%",
     transform: "translateX(-50%)",
     boxShadow: "0 5px 15px rgba(0, 0, 0, 0.3)",
@@ -118,33 +123,33 @@ const Banner = () => {
 
   // Windows Laptop Style
   const windowsLaptopStyle = {
-    width: "300px",
-    height: "180px",
+    width: isMobile ? "200px" : "300px",
+    height: isMobile ? "130px" : "180px",
     backgroundColor: "#1a1a1a",
-    borderRadius: "8px",
-    padding: "6px",
-    boxShadow: "0 18px 35px rgba(0, 0, 0, 0.5)",
+    borderRadius: isMobile ? "6px" : "8px",
+    padding: isMobile ? "5px" : "6px",
+    boxShadow: "0 14px 30px rgba(0, 0, 0, 0.5)",
     position: "relative",
-    marginBottom: "30px",
+    marginBottom: isMobile ? "20px" : "30px",
   };
 
   const windowsScreenStyle = {
     width: "100%",
     height: "100%",
     backgroundColor: "#000",
-    borderRadius: "4px",
+    borderRadius: isMobile ? "3px" : "4px",
     overflow: "hidden",
     position: "relative",
   };
 
   // iPhone Style
   const iphoneStyle = {
-    width: "180px",
-    height: "360px",
+    width: isMobile ? "130px" : "180px",
+    height: isMobile ? "260px" : "360px",
     backgroundColor: "#1a1a1a",
-    borderRadius: "25px",
-    padding: "6px",
-    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.6)",
+    borderRadius: isMobile ? "18px" : "25px",
+    padding: isMobile ? "5px" : "6px",
+    boxShadow: "0 15px 30px rgba(0, 0, 0, 0.6)",
     position: "relative",
     border: "2px solid #333",
   };
@@ -153,19 +158,19 @@ const Banner = () => {
     width: "100%",
     height: "100%",
     backgroundColor: "#000",
-    borderRadius: "19px",
+    borderRadius: isMobile ? "14px" : "19px",
     overflow: "hidden",
     position: "relative",
   };
 
   // Android Style
   const androidStyle = {
-    width: "170px",
-    height: "340px",
+    width: isMobile ? "120px" : "170px",
+    height: isMobile ? "240px" : "340px",
     backgroundColor: "#2a2a2a",
-    borderRadius: "20px",
-    padding: "5px",
-    boxShadow: "0 18px 35px rgba(0, 0, 0, 0.5)",
+    borderRadius: isMobile ? "15px" : "20px",
+    padding: isMobile ? "4px" : "5px",
+    boxShadow: "0 14px 30px rgba(0, 0, 0, 0.5)",
     position: "relative",
     border: "1px solid #444",
   };
@@ -174,19 +179,19 @@ const Banner = () => {
     width: "100%",
     height: "100%",
     backgroundColor: "#000",
-    borderRadius: "15px",
+    borderRadius: isMobile ? "12px" : "15px",
     overflow: "hidden",
     position: "relative",
   };
 
   const statusBarStyle = {
-    height: "25px",
+    height: "20px",
     background: "linear-gradient(90deg, #1a1a1a, #2a2a2a)",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "0 10px",
-    fontSize: "10px",
+    padding: "0 8px",
+    fontSize: "9px",
     color: "#fff",
   };
 
@@ -215,18 +220,17 @@ const Banner = () => {
   return (
     <div style={containerStyle}>
       <div style={starsStyle}></div>
-
       <div style={contentStyle}>
-        <h1 style={titleStyle}>Ignite Your Social World</h1>
+        <h1 style={titleStyle}>Empowering Your Digital Future</h1>
         <p style={subtitleStyle}>
-          Your Social Hub for Fun, Engagement, and Profits!
+          Custom Software Solutions Tailored for Your Business Success
         </p>
         <button
           style={buttonStyle}
           onMouseEnter={handleButtonHover}
           onMouseLeave={handleButtonLeave}
         >
-          Get Fired Up
+          Get Started
         </button>
       </div>
 
@@ -243,7 +247,7 @@ const Banner = () => {
             <div style={macScreenStyle}>
               <div
                 style={{
-                  height: "20px",
+                  height: "16px",
                   backgroundColor: "#333",
                   display: "flex",
                   alignItems: "center",
@@ -252,37 +256,55 @@ const Banner = () => {
               >
                 <div
                   style={{
-                    width: "8px",
-                    height: "8px",
+                    width: "6px",
+                    height: "6px",
                     borderRadius: "50%",
                     backgroundColor: "#ff5f56",
-                    marginRight: "4px",
+                    marginRight: "3px",
                   }}
                 ></div>
                 <div
                   style={{
-                    width: "8px",
-                    height: "8px",
+                    width: "6px",
+                    height: "6px",
                     borderRadius: "50%",
                     backgroundColor: "#ffbd2e",
-                    marginRight: "4px",
+                    marginRight: "3px",
                   }}
                 ></div>
                 <div
                   style={{
-                    width: "8px",
-                    height: "8px",
+                    width: "6px",
+                    height: "6px",
                     borderRadius: "50%",
                     backgroundColor: "#27ca3f",
                   }}
                 ></div>
               </div>
               <div style={appContentStyle}>
-                <div style={{ fontSize: "40px", marginBottom: "10px" }}>💻</div>
-                <div style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+                <div
+                  style={{
+                    fontSize: isMobile ? "28px" : "40px",
+                    marginBottom: isMobile ? "8px" : "10px",
+                  }}
+                >
+                  💻
+                </div>
+                <div
+                  style={{
+                    fontSize: isMobile ? "1rem" : "1.2rem",
+                    fontWeight: "bold",
+                    marginBottom: isMobile ? "4px" : "5px",
+                  }}
+                >
                   Mac App
                 </div>
-                <div style={{ fontSize: "0.8rem", opacity: "0.8" }}>
+                <div
+                  style={{
+                    fontSize: isMobile ? "0.6rem" : "0.8rem",
+                    opacity: "0.8",
+                  }}
+                >
                   Desktop Experience
                 </div>
               </div>
@@ -303,25 +325,55 @@ const Banner = () => {
             <div style={windowsScreenStyle}>
               <div
                 style={{
-                  height: "18px",
+                  height: "16px",
                   backgroundColor: "#0078d4",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  padding: "0 8px",
+                  padding: "0 6px",
                 }}
               >
-                <div style={{ fontSize: "8px", color: "white" }}>
+                <div
+                  style={{
+                    fontSize: isMobile ? "7px" : "8px",
+                    color: "white",
+                  }}
+                >
                   ⊞ Social Ignite
                 </div>
-                <div style={{ fontSize: "8px", color: "white" }}>⚊ ⬜ ✕</div>
+                <div
+                  style={{
+                    fontSize: isMobile ? "7px" : "8px",
+                    color: "white",
+                  }}
+                >
+                  ⚊ ⬜ ✕
+                </div>
               </div>
               <div style={appContentStyle}>
-                <div style={{ fontSize: "35px", marginBottom: "8px" }}>🖥️</div>
-                <div style={{ fontSize: "1rem", fontWeight: "bold" }}>
+                <div
+                  style={{
+                    fontSize: isMobile ? "24px" : "35px",
+                    marginBottom: isMobile ? "6px" : "8px",
+                  }}
+                >
+                  🖥️
+                </div>
+                <div
+                  style={{
+                    fontSize: isMobile ? "1rem" : "1.2rem",
+                    fontWeight: "bold",
+                    marginBottom: isMobile ? "4px" : "5px",
+                  }}
+                >
                   Windows App
                 </div>
-                <div style={{ fontSize: "0.7rem", opacity: "0.8" }}>
+                <div
+                  style={{
+                    fontSize: isMobile ? "0.6rem" : "0.8rem",
+                    opacity: "0.8",
+                  }}
+                >
                   PC Experience
                 </div>
               </div>
@@ -337,50 +389,31 @@ const Banner = () => {
               <span>📶 📶 📶</span>
             </div>
             <div style={appContentStyle}>
-              <div style={{ fontSize: "50px", marginBottom: "15px" }}>📱</div>
               <div
                 style={{
-                  fontSize: "1.3rem",
+                  fontSize: isMobile ? "30px" : "50px",
+                  marginBottom: isMobile ? "10px" : "15px",
+                }}
+              >
+                📱
+              </div>
+              <div
+                style={{
+                  fontSize: isMobile ? "1rem" : "1.3rem",
                   fontWeight: "bold",
-                  marginBottom: "5px",
+                  marginBottom: isMobile ? "4px" : "5px",
                 }}
               >
                 iOS App
               </div>
               <div
                 style={{
-                  fontSize: "0.8rem",
+                  fontSize: isMobile ? "0.6rem" : "0.8rem",
                   opacity: "0.8",
-                  marginBottom: "20px",
+                  marginBottom: isMobile ? "12px" : "20px",
                 }}
               >
                 iPhone Experience
-              </div>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: "8px",
-                  marginBottom: "20px",
-                }}
-              >
-                {["🔥", "💎", "⚡", "🌟", "💫", "🎯"].map((emoji, index) => (
-                  <div
-                    key={index}
-                    style={{
-                      width: "30px",
-                      height: "30px",
-                      backgroundColor: "rgba(255, 255, 255, 0.2)",
-                      borderRadius: "6px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {emoji}
-                  </div>
-                ))}
               </div>
             </div>
           </div>
@@ -394,65 +427,31 @@ const Banner = () => {
               <span>📶 📶 📶</span>
             </div>
             <div style={appContentStyle}>
-              <div style={{ fontSize: "45px", marginBottom: "12px" }}>🤖</div>
               <div
                 style={{
-                  fontSize: "1.2rem",
+                  fontSize: isMobile ? "28px" : "45px",
+                  marginBottom: isMobile ? "8px" : "12px",
+                }}
+              >
+                🤖
+              </div>
+              <div
+                style={{
+                  fontSize: isMobile ? "1rem" : "1.2rem",
                   fontWeight: "bold",
-                  marginBottom: "5px",
+                  marginBottom: isMobile ? "4px" : "5px",
                 }}
               >
                 Android App
               </div>
               <div
                 style={{
-                  fontSize: "0.7rem",
+                  fontSize: isMobile ? "0.6rem" : "0.8rem",
                   opacity: "0.8",
-                  marginBottom: "15px",
+                  marginBottom: isMobile ? "10px" : "15px",
                 }}
               >
                 Android Experience
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  gap: "6px",
-                  marginBottom: "15px",
-                }}
-              >
-                {["💬", "👍", "📸", "🎵"].map((icon, index) => (
-                  <div
-                    key={index}
-                    style={{
-                      width: "25px",
-                      height: "25px",
-                      backgroundColor: "rgba(255, 255, 255, 0.2)",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "12px",
-                    }}
-                  >
-                    {icon}
-                  </div>
-                ))}
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "15px",
-                  width: "80%",
-                  height: "25px",
-                  backgroundColor: "rgba(255, 255, 255, 0.2)",
-                  borderRadius: "12px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "0.7rem",
-                }}
-              >
-                Download Now
               </div>
             </div>
           </div>

@@ -28,6 +28,10 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       <header
@@ -36,6 +40,7 @@ const Header = () => {
             ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100"
             : "bg-white/90 backdrop-blur-sm shadow-md"
         }`}
+        role="banner"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 lg:h-20">
@@ -73,7 +78,6 @@ const Header = () => {
                   }
                 >
                   <span className="relative z-10">{item.name}</span>
-
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
               ))}
@@ -91,7 +95,9 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="lg:hidden p-2 text-gray-600 hover:text-blue-600 focus:outline-none relative z-50"
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              className="lg:hidden p-2 text-gray-600 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 relative z-50"
             >
               <div className="w-6 h-6 relative">
                 <Menu
@@ -113,14 +119,17 @@ const Header = () => {
         <div
           className={`lg:hidden transition-all duration-300 ${
             isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-          } overflow-hidden bg-white/95 backdrop-blur-md border-t border-gray-100`}
+          } overflow-hidden bg-white/95 backdrop-blur-md border-t border-gray-100 z-40`}
         >
           <div className="px-4 py-6 space-y-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                onClick={() => setActiveItem(item.path)}
+                onClick={() => {
+                  setActiveItem(item.path);
+                  closeMenu();
+                }}
                 className={({ isActive }) =>
                   `block w-full text-left px-4 py-3 text-base font-medium transition-all duration-300 rounded-lg ${
                     isActive
@@ -147,7 +156,10 @@ const Header = () => {
 
             {/* Mobile CTA Button */}
             <div className="pt-4">
-              <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg">
+              <button
+                onClick={closeMenu}
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg"
+              >
                 <span>Schedule a Call</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
@@ -159,8 +171,9 @@ const Header = () => {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 lg:hidden"
           onClick={toggleMenu}
+          aria-hidden="true"
         ></div>
       )}
     </>

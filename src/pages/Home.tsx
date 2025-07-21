@@ -469,6 +469,27 @@ const KKITSolution = () => {
     { name: "Company Six", logo: clientImg6 },
   ];
 
+  const testimonials = [
+    {
+      quote:
+        "Working with KK-IT-SOLUTIONS was a game-changer for our business. Their team delivered beyond our expectations.",
+      client: "John Doe, CEO of Company One",
+      image: clientImg1,
+    },
+    {
+      quote:
+        "The level of professionalism and technical expertise is unmatched. Highly recommended for any tech project.",
+      client: "Jane Smith, CTO of Company Two",
+      image: clientImg2,
+    },
+    {
+      quote:
+        "From concept to execution, they were with us every step of the way. Truly a partner in every sense.",
+      client: "Michael Lee, Founder of Company Three",
+      image: clientImg3,
+    },
+  ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -915,6 +936,45 @@ const KKITSolution = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+            What Our Clients Say
+          </h3>
+          <Carousel
+            indicators={true}
+            controls={true}
+            className="rounded-xl shadow-lg overflow-hidden"
+          >
+            {testimonials.map((testimonial, index) => (
+              <Carousel.Item key={index}>
+                <div className="bg-white p-8 rounded-xl shadow-md">
+                  <div className="flex flex-col md:flex-row items-center">
+                    {/* Client Image */}
+                    <div className="md:mr-8 mb-6 md:mb-0">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.client}
+                        className="w-20 h-20 rounded-full object-cover border-4 border-blue-100 shadow-sm"
+                      />
+                    </div>
+                    {/* Testimonial Text */}
+                    <div>
+                      <p className="text-lg italic text-gray-700 mb-4">
+                        "{testimonial.quote}"
+                      </p>
+                      <p className="text-blue-600 font-semibold">
+                        — {testimonial.client}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Carousel.Item>
+            ))}
+          </Carousel>
         </div>
       </section>
 

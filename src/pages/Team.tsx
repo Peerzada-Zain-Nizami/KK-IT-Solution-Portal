@@ -11,6 +11,7 @@ import {
   Users,
   Search,
 } from "lucide-react";
+
 import yousuf from "../assets/images/kk-team/yousuf.jpeg";
 import dummy from "../assets/images/kk-team/sam.png";
 import anees from "../assets/images/kk-team/anees.jpeg";
@@ -278,6 +279,7 @@ const departments = [
 export default function Team() {
   const [selectedDepartment, setSelectedDepartment] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const filteredEmployees = employees.filter((employee) => {
     const matchesDepartment =
@@ -304,28 +306,66 @@ export default function Team() {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 min-h-screen">
+    <div className="bg-gradient-to-br from-blue-50 via-white to-blue-100 min-h-screen">
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-white z-40 md:hidden">
+          <div className="pt-20 px-6">
+            <nav className="flex flex-col space-y-6">
+              {departments.map((dept) => (
+                <button
+                  key={dept}
+                  onClick={() => {
+                    setSelectedDepartment(dept);
+                    setIsMenuOpen(false);
+                  }}
+                  className={`text-gray-700 hover:text-blue-600 transition-colors text-lg font-medium ${
+                    selectedDepartment === dept ? "font-bold" : ""
+                  }`}
+                >
+                  {dept}
+                </button>
+              ))}
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all duration-300 w-full"
+              >
+                Close
+              </button>
+            </nav>
+          </div>
+        </div>
+      )}
+
+      {/* Overlay for mobile menu */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+        ></div>
+      )}
+
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 px-6 mt-16">
+      <div className="relative bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16 px-4 sm:py-20 sm:px-6 mt-16">
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="relative max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6 animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             Meet Our Amazing Team
           </h1>
-          <p className="text-xl opacity-90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl opacity-90 max-w-3xl mx-auto">
             Talented professionals dedicated to delivering exceptional software
             solutions and driving innovation in technology.
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         {/* Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl mb-4 mx-auto">
                 <stat.icon className="h-8 w-8 text-white" />
@@ -341,38 +381,37 @@ export default function Team() {
         </div>
 
         {/* Leadership Section */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Leadership
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
           </div>
-          <div className="bg-white rounded-2xl shadow-xl p-10 max-w-5xl mx-auto">
-            <div className="flex flex-col lg:flex-row items-center gap-10">
+          <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-10 max-w-5xl mx-auto">
+            <div className="flex flex-col items-center gap-6 sm:flex-row">
               <div className="flex-shrink-0">
                 <div className="relative">
                   <img
                     src={ceo.image}
                     alt={ceo.name}
-                    className="w-40 h-40 rounded-full object-cover shadow-xl ring-4 ring-blue-100"
-                    style={{ objectFit: "initial" }}
+                    className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover shadow-xl ring-4 ring-blue-100"
                   />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 opacity-20"></div>
                 </div>
               </div>
-              <div className="flex-1 text-center lg:text-left">
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">
+              <div className="flex-1 text-center sm:text-left">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                   {ceo.name}
                 </h3>
-                <p className="text-blue-600 font-semibold text-xl mb-4">
+                <p className="text-blue-600 font-semibold text-lg mb-4">
                   {ceo.role}
                 </p>
-                <p className="text-gray-600 mb-8 text-lg leading-relaxed">
+                <p className="text-gray-600 mb-6 text-base sm:text-lg leading-relaxed">
                   {ceo.bio}
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                  <div className="text-center md:text-left">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                  <div className="text-center sm:text-left">
                     <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">
                       Education
                     </span>
@@ -380,7 +419,7 @@ export default function Team() {
                       {ceo.education}
                     </p>
                   </div>
-                  <div className="text-center md:text-left">
+                  <div className="text-center sm:text-left">
                     <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">
                       Experience
                     </span>
@@ -388,7 +427,7 @@ export default function Team() {
                       {ceo.experience}
                     </p>
                   </div>
-                  <div className="text-center md:text-left">
+                  <div className="text-center sm:text-left">
                     <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">
                       Expertise
                     </span>
@@ -404,7 +443,7 @@ export default function Team() {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-center lg:justify-start space-x-6">
+                <div className="flex justify-center sm:justify-start space-x-6">
                   {[
                     {
                       icon: Linkedin,
@@ -432,7 +471,7 @@ export default function Team() {
                       href={social.href}
                       className={`text-gray-600 ${social.color} transition-colors duration-300 transform hover:scale-110`}
                     >
-                      <social.icon className="h-7 w-7" />
+                      <social.icon className="h-6 w-6 sm:h-7 sm:w-7" />
                     </a>
                   ))}
                 </div>
@@ -442,39 +481,33 @@ export default function Team() {
         </section>
 
         {/* Board Members Section */}
-        <section className="mb-20">
+        <section className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Board Members & Directors
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {boardMembers.map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
                   <div className="flex-shrink-0">
-                    <div className="relative">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover shadow-lg ring-2 ring-blue-100"
-                        style={{ objectFit: "initial" }}
-                      />
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 opacity-20"></div>
-                    </div>
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-lg ring-2 ring-blue-100"
+                    />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">
+                  <div className="flex-1 text-center sm:text-left">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900">
                       {member.name}
                     </h3>
-                    <p className="text-blue-600 font-semibold mb-3">
-                      {member.role}
-                    </p>
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                    <p className="text-blue-600 font-semibold">{member.role}</p>
+                    <p className="text-gray-600 text-sm sm:text-base mb-4">
                       {member.bio}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -501,34 +534,32 @@ export default function Team() {
         {/* Team Members Section */}
         <section>
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Our Team Members
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
           </div>
 
           {/* Filter and Search */}
-          <div className="flex flex-col md:flex-row gap-4 mb-12">
-            <div className="flex-1">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <input
-                  type="text"
-                  placeholder="Search team members..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
+          <div className="flex flex-col gap-4 mb-10">
+            <div className="w-full relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 h-5 w-5" />
+              <input
+                type="text"
+                placeholder="Search team members..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {departments.map((dept) => (
                 <button
                   key={dept}
                   onClick={() => setSelectedDepartment(dept)}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                  className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 text-sm sm:text-base ${
                     selectedDepartment === dept
-                      ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg"
+                      ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-md"
                       : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                   }`}
                 >
@@ -538,36 +569,33 @@ export default function Team() {
             </div>
           </div>
 
+          {/* Team Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredEmployees.map((employee, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="bg-white rounded-2xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="text-center">
-                  <div className="relative mb-6">
+                  <div className="relative mb-4">
                     <img
                       src={employee.image}
                       alt={employee.name}
-                      className="w-24 h-24 rounded-full object-cover mx-auto shadow-lg ring-2 ring-blue-100"
-                      style={{ objectFit: "initial" }}
+                      className="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-blue-100"
                     />
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 opacity-20 mx-auto w-24 h-24"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 opacity-20 mx-auto w-20 h-20"></div>
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-1">
                     {employee.name}
                   </h3>
-                  <p className="text-blue-600 font-semibold mb-2 text-sm">
+                  <p className="text-blue-600 font-semibold text-sm sm:text-base mb-2">
                     {employee.role}
                   </p>
-                  <p className="text-gray-500 mb-4 text-sm font-medium">
-                    {employee.department}
-                  </p>
-                  <div className="flex flex-wrap gap-1 mb-4 justify-center">
+                  <div className="flex flex-wrap justify-center gap-1 mb-4">
                     {employee.skills.slice(0, 3).map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs px-2 py-1 rounded-full"
+                        className="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full"
                       >
                         {skill}
                       </span>
@@ -578,7 +606,7 @@ export default function Team() {
                       </span>
                     )}
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 text-center">
                     <div className="flex items-center justify-center text-sm text-gray-500">
                       <Calendar className="h-4 w-4 mr-2" />
                       <span>{employee.experience}</span>
@@ -593,11 +621,12 @@ export default function Team() {
             ))}
           </div>
 
+          {/* No Results */}
           {filteredEmployees.length === 0 && (
             <div className="text-center py-12">
-              <div className="text-gray-400 text-lg">
+              <p className="text-gray-400 text-lg">
                 No team members found matching your criteria.
-              </div>
+              </p>
             </div>
           )}
         </section>

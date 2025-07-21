@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const projects = [
+export const projects = [
   {
     title: "E-commerce Platform",
     image:
@@ -13,7 +13,7 @@ const projects = [
   {
     title: "Healthcare App",
     image:
-      "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
+      " https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
     description:
       "A mobile app designed to help patients manage their health records and appointments.",
     link: "#healthcare-app",
@@ -21,7 +21,7 @@ const projects = [
   {
     title: "Financial Dashboard",
     image:
-      "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
+      " https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
     description:
       "An interactive financial dashboard for tracking investments and budgets.",
     link: "#financial-dashboard",
@@ -29,7 +29,7 @@ const projects = [
   {
     title: "Education Portal",
     image:
-      "https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
+      " https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
     description:
       "An online learning platform featuring courses, quizzes, and certifications.",
     link: "#education-portal",
@@ -37,7 +37,7 @@ const projects = [
   {
     title: "Social Media Analytics Tool",
     image:
-      "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
+      " https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
     description:
       "A tool for analyzing social media data and generating insights.",
     link: "#social-media-analytics",
@@ -45,7 +45,7 @@ const projects = [
   {
     title: "IoT Home Automation System",
     image:
-      "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
+      " https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
     description:
       "A smart home system that integrates IoT devices for automation.",
     link: "#iot-home-automation",
@@ -75,20 +75,19 @@ export default function Portfolio() {
               key={index}
               className="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-40 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                {project.title}
-              </h3>
-              <p className="text-gray-600 mb-4">{project.description}</p>
-              <Link
-                to={project.link}
-                className="text-blue-600 hover:text-blue-800 font-medium flex items-center"
-              >
-                View Project <span className="ml-1">→</span>
+              <Link to={`/portfolio/${index}`}>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-40 object-cover rounded-lg mb-4"
+                />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 mb-4">{project.description}</p>
+                <div className="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                  View Project <span className="ml-1">→</span>
+                </div>
               </Link>
             </div>
           ))}
