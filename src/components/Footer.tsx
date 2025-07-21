@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/web-development"
+                  to="/services"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
                 >
                   Web Development
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  to="/mobile-apps"
+                  to="/services"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
                 >
                   Mobile Apps
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  to="/ui-ux-design"
+                  to="/services"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
                 >
                   UI/UX Design
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  to="/devops"
+                  to="/services"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
                 >
                   DevOps

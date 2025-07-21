@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Menu, X, Phone, Mail } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeItem, setActiveItem] = useState("/");
+  const location = useLocation();
+
+  const handleScheduleCall = () => {
+    window.open("https://calendly.com/ ", "_blank");
+  };
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -64,28 +69,32 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setActiveItem(item.path)}
-                  className={({ isActive }) =>
-                    `relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setActiveItem(item.path)}
+                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
                       isActive
                         ? "text-blue-600 bg-blue-50"
                         : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                    }`
-                  }
-                >
-                  <span className="relative z-10">{item.name}</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </Link>
-              ))}
+                    }`}
+                  >
+                    <span className="relative z-10">{item.name}</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Desktop CTA Button */}
             <div className="hidden lg:flex items-center space-x-4">
-              <button className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-xl group">
+              <button
+                onClick={handleScheduleCall}
+                className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-xl group"
+              >
                 <span className="relative z-10">Schedule a Call</span>
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -122,42 +131,45 @@ const Header = () => {
           } overflow-hidden bg-white/95 backdrop-blur-md border-t border-gray-100 z-40`}
         >
           <div className="px-4 py-6 space-y-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => {
-                  setActiveItem(item.path);
-                  closeMenu();
-                }}
-                className={({ isActive }) =>
-                  `block w-full text-left px-4 py-3 text-base font-medium transition-all duration-300 rounded-lg ${
+            {navItems.map((item) => {
+              console.log("show item name", item.name);
+              console.log("show item path", item.path);
+              console.log("show active item", location.pathname);
+              const isActive = location.pathname === item.path;
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => {
+                    setActiveItem(item.path);
+                    closeMenu();
+                  }}
+                  className={`block w-full text-left px-4 py-3 text-base font-medium transition-all duration-300 rounded-lg ${
                     isActive
-                      ? "text-blue-600 bg-blue-50 border-l-4 border-blue-600"
+                      ? "text-blue-600 bg-blue-50 font-semibold"
                       : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                  }`
-                }
-              >
-                {item.name}
-              </Link>
-            ))}
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
 
             {/* Mobile Contact Info */}
             <div className="pt-4 border-t border-gray-200 space-y-3">
               <div className="flex items-center space-x-3 px-4 text-sm text-gray-600">
                 <Phone className="w-4 h-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+92 3042483426</span>
               </div>
               <div className="flex items-center space-x-3 px-4 text-sm text-gray-600">
                 <Mail className="w-4 h-4" />
-                <span>info@kk-it-solutions.com</span>
+                <span>info@kkitsolutions.com</span>
               </div>
             </div>
 
-            {/* Mobile CTA Button */}
             <div className="pt-4">
               <button
-                onClick={closeMenu}
+                onClick={handleScheduleCall}
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg"
               >
                 <span>Schedule a Call</span>

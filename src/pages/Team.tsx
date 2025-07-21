@@ -14,6 +14,7 @@ import {
 
 import yousuf from "../assets/images/kk-team/yousuf.jpeg";
 import dummy from "../assets/images/kk-team/sam.png";
+import asim from "../assets/images/kk-team/asim.png";
 import anees from "../assets/images/kk-team/anees.jpeg";
 import subtain from "../assets/images/kk-team/subtain.png";
 import hassanMK from "../assets/images/kk-team/hassanMK.jpeg";
@@ -105,12 +106,12 @@ const employees = [
   },
   {
     name: "Mr. Asim",
-    role: "Frontend Web Developer",
+    role: "Full Stack Developer",
     department: "Development",
-    skills: ["React", "JavaScript", "HTML", "CSS"],
+    skills: ["React", "JavaScript", "Nest", "HTML", "CSS"],
     experience: "4 years",
     location: "Development Team",
-    image: dummy,
+    image: asim,
   },
   {
     name: "Mr. Kamil",
@@ -161,8 +162,8 @@ const employees = [
     name: "Mr. Zuhair Abbas",
     role: "Senior React Native Engineer",
     department: "Mobile Development",
-    skills: ["React Native", "Senior Development", "Team Lead", "Architecture"],
-    experience: "7 years",
+    skills: ["React Native", "React js", "Next js"],
+    experience: "4.5 years",
     location: "Mobile Team",
     image: zuhair,
   },
@@ -202,7 +203,7 @@ const employees = [
     name: "Mr. Moeen U Din",
     role: "Frontend Developer",
     department: "Development",
-    skills: ["React Native", "Frontend", "JavaScript", "UI Development"],
+    skills: ["React Native", "JavaScript", "React js"],
     experience: "3 years",
     location: "Development Team",
     image: moeen,
@@ -256,14 +257,9 @@ const employees = [
     name: "Mr. Yousaf",
     role: "React Native Developer",
     department: "Mobile Development",
-    skills: [
-      "React Native",
-      "Mobile Development",
-      "JavaScript",
-      "App Development",
-    ],
+    skills: ["React Native", "Redux", "React js"],
     experience: "3 years",
-    location: "Mobile Team",
+    location: "Development Team",
     image: yousuf,
   },
 ];

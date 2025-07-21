@@ -22,6 +22,10 @@ import {
   TestTube,
   Rocket,
   MessageSquare,
+  Lock,
+  Terminal,
+  Globe,
+  BookOpen,
 } from "lucide-react";
 import Carousel from "react-bootstrap/Carousel";
 import Banner from "../components/Banner";
@@ -171,125 +175,220 @@ const KKITSolution = () => {
   // Services Data
   const services = [
     {
-      icon: <Code className="w-8 h-8" />,
+      icon: <Code className="w-8 h-8 text-blue-600" />,
       title: "Web Development",
       description:
         "Custom web applications using modern frameworks like React, Vue, Angular, and Node.js",
       features: [
-        "Responsive Design",
-        "Progressive Web Apps",
-        "E-commerce Solutions",
-        "CMS Development",
+        "Responsive & Cross-browser Design",
+        "Single Page Applications (SPA)",
+        "Progressive Web Apps (PWA)",
+        "E-commerce Solutions (Shopify, WooCommerce)",
+        "CMS Development (WordPress, Drupal)",
+        "API Integration & Backend Development",
+        "Web Performance Optimization",
       ],
     },
     {
-      icon: <Smartphone className="w-8 h-8" />,
-      title: "Mobile Apps",
+      icon: <Smartphone className="w-8 h-8 text-blue-600" />,
+      title: "Mobile App Development",
       description:
         "Native and cross-platform mobile applications for iOS and Android",
       features: [
-        "Native iOS/Android",
-        "React Native",
-        "Flutter",
-        "App Store Optimization",
+        "Native iOS & Android Development",
+        "Cross-Platform App Development (React Native, Flutter)",
+        "App Store Optimization (ASO)",
+        "Mobile UI/UX Design",
+        "Push Notifications & In-App Messaging",
+        "Offline Functionality & Sync",
+        "App Maintenance & Support",
       ],
     },
     {
-      icon: <Cloud className="w-8 h-8" />,
+      icon: <Cloud className="w-8 h-8 text-blue-600" />,
       title: "Cloud Solutions",
       description: "Scalable cloud infrastructure and migration services",
-      features: ["AWS/Azure/GCP", "Cloud Migration", "DevOps", "Microservices"],
+      features: [
+        "Cloud Strategy & Architecture",
+        "AWS, Azure, Google Cloud Platform",
+        "Cloud Migration & Integration",
+        "Serverless Architecture",
+        "DevOps Automation",
+        "Microservices Architecture",
+        "Cloud Cost Optimization",
+      ],
     },
     {
-      icon: <Database className="w-8 h-8" />,
+      icon: <Database className="w-8 h-8 text-blue-600" />,
       title: "Database Management",
       description: "Database design, optimization, and management solutions",
       features: [
-        "SQL/NoSQL",
-        "Data Migration",
-        "Performance Tuning",
-        "Backup Solutions",
+        "Relational (MySQL, PostgreSQL) & NoSQL (MongoDB, Firebase)",
+        "Data Modeling & Schema Design",
+        "Database Migration & Backup",
+        "Performance Tuning & Indexing",
+        "Data Warehousing & ETL",
+        "Real-time Data Sync",
+        "Database Security & Compliance",
       ],
     },
     {
-      icon: <BarChart3 className="w-8 h-8" />,
-      title: "Data Analytics",
+      icon: <BarChart3 className="w-8 h-8 text-blue-600" />,
+      title: "Data Analytics & BI",
       description:
         "Turn your data into actionable insights with advanced analytics",
       features: [
-        "Business Intelligence",
-        "Data Visualization",
-        "Machine Learning",
+        "Business Intelligence Dashboards (Power BI, Tableau)",
+        "Data Visualization & Reporting",
+        "Machine Learning Models",
         "Predictive Analytics",
+        "Big Data Processing (Hadoop, Spark)",
+        "Real-time Analytics",
+        "Data Governance & Compliance",
       ],
     },
     {
-      icon: <Palette className="w-8 h-8" />,
+      icon: <Palette className="w-8 h-8 text-blue-600" />,
       title: "UI/UX Design",
       description: "Beautiful, user-centered design that drives engagement",
       features: [
-        "User Research",
-        "Wireframing",
-        "Prototyping",
-        "Design Systems",
+        "User Research & Personas",
+        "Wireframing & Prototyping",
+        "High-Fidelity UI Design",
+        "Design Systems & Branding",
+        "Accessibility & Inclusive Design",
+        "User Testing & Feedback",
+        "Design-to-Code Handoff",
       ],
     },
     {
-      icon: <Cog className="w-8 h-8" />,
-      title: "Custom Software",
+      icon: <Cog className="w-8 h-8 text-blue-600" />,
+      title: "Custom Software Development",
       description:
         "Tailored software solutions for unique business requirements",
       features: [
-        "Enterprise Software",
-        "Integration Solutions",
-        "Legacy Modernization",
-        "API Development",
+        "Enterprise Software Development",
+        "Legacy System Modernization",
+        "Integration with Existing Systems",
+        "API Development & Management",
+        "Custom CRM & ERP Systems",
+        "Workflow Automation",
+        "Software Maintenance & Support",
       ],
     },
     {
-      icon: <Bot className="w-8 h-8" />,
+      icon: <Bot className="w-8 h-8 text-blue-600" />,
       title: "AI & Machine Learning",
       description: "Intelligent solutions powered by artificial intelligence",
       features: [
-        "Chatbots",
-        "Computer Vision",
-        "Natural Language Processing",
-        "Automation",
+        "AI Chatbots & Virtual Assistants",
+        "Computer Vision & Image Recognition",
+        "Natural Language Processing (NLP)",
+        "Predictive Modeling & Forecasting",
+        "Recommendation Systems",
+        "Automated Decision Systems",
+        "AI Ethics & Compliance",
       ],
     },
     {
-      icon: <Zap className="w-8 h-8" />,
+      icon: <Zap className="w-8 h-8 text-blue-600" />,
       title: "Digital Transformation",
       description:
         "Complete digital transformation strategies and implementation",
       features: [
-        "Process Automation",
-        "Digital Strategy",
-        "Change Management",
-        "Technology Consulting",
+        "Digital Strategy Consulting",
+        "Process Automation & RPA",
+        "Change Management & Training",
+        "Technology Stack Audit",
+        "Customer Journey Mapping",
+        "Agile Transformation",
+        "End-to-End Digital Integration",
       ],
     },
     {
-      icon: <Monitor className="w-8 h-8" />,
-      title: "Quality Assurance",
+      icon: <Monitor className="w-8 h-8 text-blue-600" />,
+      title: "Quality Assurance & Testing",
       description: "Comprehensive testing services to ensure software quality",
       features: [
-        "Automated Testing",
-        "Performance Testing",
-        "Security Testing",
-        "User Acceptance Testing",
+        "Manual & Automated Testing",
+        "Performance & Load Testing",
+        "Security & Penetration Testing",
+        "Cross-Browser & Device Testing",
+        "Regression & Unit Testing",
+        "Test Case Development",
+        "User Acceptance Testing (UAT)",
       ],
     },
     {
-      icon: <Headphones className="w-8 h-8" />,
+      icon: <Headphones className="w-8 h-8 text-blue-600" />,
       title: "Support & Maintenance",
       description:
         "24/7 support and maintenance services for your applications",
       features: [
-        "Technical Support",
-        "Bug Fixes",
+        "24/7 Technical Support",
+        "Bug Fixes & Patches",
         "Performance Monitoring",
-        "Regular Updates",
+        "Regular Updates & Enhancements",
+        "Server & Infrastructure Monitoring",
+        "SLA-Based Support",
+        "On-demand Consulting",
+      ],
+    },
+    {
+      icon: <Lock className="w-8 h-8 text-blue-600" />,
+      title: "Cybersecurity",
+      description: "Protect your digital assets with robust security solutions",
+      features: [
+        "Penetration Testing & Vulnerability Scanning",
+        "Data Encryption & Network Security",
+        "Threat Detection & Response",
+        "Compliance Audits (GDPR, HIPAA)",
+        "Security Training & Awareness",
+        "Incident Response Planning",
+        "Zero Trust Architecture",
+      ],
+    },
+    {
+      icon: <Globe className="w-8 h-8 text-blue-600" />,
+      title: "SEO & Digital Marketing",
+      description: "Boost your online presence with strategic marketing",
+      features: [
+        "Search Engine Optimization (SEO)",
+        "Content Marketing & Strategy",
+        "Google Ads & Paid Campaigns",
+        "Social Media Marketing",
+        "Conversion Rate Optimization (CRO)",
+        "Email Marketing Automation",
+        "Analytics & ROI Tracking",
+      ],
+    },
+    {
+      icon: <Terminal className="w-8 h-8 text-blue-600" />,
+      title: "DevOps & CI/CD",
+      description:
+        "Streamline development and deployment with DevOps practices",
+      features: [
+        "CI/CD Pipeline Setup",
+        "Infrastructure as Code (IaC)",
+        "Containerization (Docker, Kubernetes)",
+        "Monitoring & Logging",
+        "Automated Testing & Deployment",
+        "Release Management",
+        "Cloud DevOps Integration",
+      ],
+    },
+    {
+      icon: <BookOpen className="w-8 h-8 text-blue-600" />,
+      title: "Training & Workshops",
+      description: "Empower your team with hands-on tech training",
+      features: [
+        "Customized Corporate Training",
+        "Hands-on Workshops & Bootcamps",
+        "Certification Programs",
+        "Technical Documentation",
+        "Team Upskilling",
+        "Mentorship & Coaching",
+        "E-learning & LMS Development",
       ],
     },
   ];
@@ -599,40 +698,6 @@ const KKITSolution = () => {
         </div>
       </section>
 
-      {/* Full Width Carousel Section */}
-      <section className="w-full bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-6">
-            What Our Clients Say
-          </h3>
-        </div>
-        <Carousel className="w-full">
-          <Carousel.Item>
-            <ExampleCarouselImage text="Client Testimonial 1" />
-            <Carousel.Caption>
-              <h3>First Client Feedback</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <ExampleCarouselImage text="Client Testimonial 2" />
-            <Carousel.Caption>
-              <h3>Second Client Feedback</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <ExampleCarouselImage text="Client Testimonial 3" />
-            <Carousel.Caption>
-              <h3>Third Client Feedback</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-      </section>
-
       {/* Features Section */}
       <section className="py-20 relative bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -792,7 +857,12 @@ const KKITSolution = () => {
 
               {/* CTA Button */}
               <div className="pt-8">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2 shadow-lg">
+                <button
+                  onClick={() =>
+                    window.open("https://calendly.com/ ", "_blank")
+                  }
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2 shadow-lg"
+                >
                   <span>Schedule a Call</span>
                   <ArrowRight className="w-5 h-5" />
                 </button>
@@ -814,13 +884,14 @@ const KKITSolution = () => {
             </p>
           </div>
 
+          {/* Main Slide Content */}
           <div
             className="relative bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            {/* Main Slide Content */}
             <div className="relative h-[340px] flex items-center justify-center p-8">
+              {/* Background Gradient */}
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${aiServices[currentIndex].color} opacity-5`}
               ></div>
@@ -879,7 +950,7 @@ const KKITSolution = () => {
           </div>
 
           {/* Thumbnail Navigation */}
-          <div className="flex justify-center gap-4 mt-6 flex-wrap">
+          <div className="flex flex-wrap justify-center gap-4 mt-6">
             {aiServices.map((service, index) => (
               <button
                 key={index}

@@ -135,12 +135,7 @@ const Contact: React.FC = () => {
                       <h4 className="text-gray-900 font-semibold mb-1">
                         Email
                       </h4>
-                      <p className="text-gray-600">
-                        info@codecraftsolutions.com
-                      </p>
-                      <p className="text-gray-600">
-                        support@codecraftsolutions.com
-                      </p>
+                      <p className="text-gray-600">info@kkitsolutions.com</p>
                     </div>
                   </div>
 
@@ -152,8 +147,8 @@ const Contact: React.FC = () => {
                       <h4 className="text-gray-900 font-semibold mb-1">
                         Phone
                       </h4>
-                      <p className="text-gray-600">+1 (555) 123-4567</p>
-                      <p className="text-gray-600">+1 (555) 987-6543</p>
+                      <p className="text-gray-600">+92 32605380041</p>
+                      <p className="text-gray-600">+92 30424834256</p>
                     </div>
                   </div>
 
@@ -165,8 +160,11 @@ const Contact: React.FC = () => {
                       <h4 className="text-gray-900 font-semibold mb-1">
                         Address
                       </h4>
-                      <p className="text-gray-600">123 Tech Street</p>
-                      <p className="text-gray-600">Silicon Valley, CA 94000</p>
+                      <p className="text-gray-600">
+                        Green Homes Colony, House #49, Nawab Pur Road, Near 8
+                        Number Chungit
+                      </p>
+                      {/* <p className="text-gray-600">Silicon Valley, CA 94000</p> */}
                     </div>
                   </div>
                 </div>
