@@ -15,13 +15,13 @@ import {
 import yousuf from "../assets/images/kk-team/yousuf.jpeg";
 import dummy from "../assets/images/kk-team/sam.png";
 import asim from "../assets/images/kk-team/asim.png";
-import anees from "../assets/images/kk-team/anees.jpeg";
+import anees from "../assets/images/kk-team/anees.png";
 import subtain from "../assets/images/kk-team/subtain.png";
 import hassanMK from "../assets/images/kk-team/hassanMK.jpeg";
 import zuhair from "../assets/images/kk-team/zuhair.jpg";
-import shameer from "../assets/images/kk-team/shameer.jpeg";
-import saeed from "../assets/images/kk-team/saeed.jpeg";
-import kamil from "../assets/images/kk-team/kamil.jpeg";
+import shameer from "../assets/images/kk-team/shameer.png";
+import saeed from "../assets/images/kk-team/saeed.png";
+import kamil from "../assets/images/kk-team/kamil.png";
 import q_saif from "../assets/images/kk-team/q_saif.jpeg";
 import moeen from "../assets/images/kk-team/moeen.jpeg";
 import saad from "../assets/images/kk-team/saad.jpeg";
@@ -31,7 +31,7 @@ import john from "../assets/images/kk-team/john.jpeg";
 import qazi from "../assets/images/kk-team/qazi.jpeg";
 
 const ceo = {
-  name: "Mrs. Anah",
+  name: "Mis Anah",
   role: "HR & Finance Management",
   bio: "Leading our human resources and financial operations with strategic vision and exceptional leadership skills.",
   education: "Business Administration",
@@ -245,7 +245,7 @@ const employees = [
     image: saif,
   },
   {
-    name: "Miss Sam",
+    name: "Mis Sam",
     role: "Full Stack Developer",
     department: "Development",
     skills: ["Full Stack", "Web Development", "React", "Node.js"],
@@ -577,7 +577,7 @@ export default function Team() {
                     <img
                       src={employee.image}
                       alt={employee.name}
-                      className="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-blue-100"
+                      className="w-20 h-20 mx-auto rounded-full object-contain shadow-md ring-2 ring-blue-100"
                     />
                     <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 opacity-20 mx-auto w-20 h-20"></div>
                   </div>
