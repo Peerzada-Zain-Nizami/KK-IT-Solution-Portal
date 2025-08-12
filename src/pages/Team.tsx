@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Linkedin,
   Twitter,
@@ -12,23 +12,27 @@ import {
   Search,
 } from "lucide-react";
 
-import yousuf from "../assets/images/kk-team/yousuf.jpeg";
+// Import all local images
 import dummy from "../assets/images/kk-team/sam.png";
-import asim from "../assets/images/kk-team/asim.png";
 import anees from "../assets/images/kk-team/anees.png";
-import subtain from "../assets/images/kk-team/subtain.png";
 import hassanMK from "../assets/images/kk-team/hassanMK.jpeg";
-import zuhair from "../assets/images/kk-team/zuhair.jpg";
-import shameer from "../assets/images/kk-team/shameer.png";
-import saeed from "../assets/images/kk-team/saeed.png";
-import kamil from "../assets/images/kk-team/kamil.png";
 import q_saif from "../assets/images/kk-team/q_saif.jpeg";
-import moeen from "../assets/images/kk-team/moeen.jpeg";
-import saad from "../assets/images/kk-team/saad.jpeg";
-import saif from "../assets/images/kk-team/saif.jpeg";
-import zul from "../assets/images/kk-team/zul.jpeg";
-import john from "../assets/images/kk-team/john.jpeg";
 import qazi from "../assets/images/kk-team/qazi.jpeg";
+import saad from "../assets/images/kk-team/saad.jpeg";
+import subtain from "../assets/images/kk-team/subtain.png";
+import ali from "../assets/images/kk-team/ali.jpg";
+import asim from "../assets/images/kk-team/asim.png";
+import kamil from "../assets/images/kk-team/kamil.png";
+import hassan from "../assets/images/kk-team/hassan.jpg";
+import saeed from "../assets/images/kk-team/saeed.png";
+import shameer from "../assets/images/kk-team/shameer.png";
+import zeeshan from "../assets/images/kk-team/zeeshan.jpg";
+import zuhair from "../assets/images/kk-team/zuhair.jpg";
+import saif from "../assets/images/kk-team/saif.png";
+import john from "../assets/images/kk-team/john.png";
+import moeen from "../assets/images/kk-team/moeen.png";
+import zul from "../assets/images/kk-team/zul.png";
+import yousuf from "../assets/images/kk-team/yousuf.jpeg";
 
 const ceo = {
   name: "Mis Anah",
@@ -87,204 +91,170 @@ const boardMembers = [
 
 const employees = [
   {
-    name: "Mr. Subtain",
-    role: "Backend Developer",
-    department: "Development",
-    skills: ["Node.js", "Python", "MongoDB", "API Development"],
-    experience: "5 years",
+    name: "Muhammad Subtain",
+    role: "Developer",
+    skills: ["Node.Js", "Nest.Js", "Databases"],
+    experience: "4 Years",
     location: "Development Team",
     image: subtain,
   },
   {
-    name: "Mr. Ali",
-    role: "Wallpaper Designer",
-    department: "Graphics",
-    skills: ["Photoshop", "Illustrator", "Design", "Creative Suite"],
-    experience: "3 years",
-    location: "Graphics Department",
-    image: dummy,
+    name: "Muhammad Ali",
+    role: "Graphic designer",
+    skills: ["Photo shop", "Adobe Illustrator", "After effect"],
+    experience: "4 Years",
+    location: "Graphic Department",
+    image: ali,
   },
   {
-    name: "Mr. Asim",
-    role: "Full Stack Developer",
-    department: "Development",
-    skills: ["React", "JavaScript", "Nest", "HTML", "CSS"],
-    experience: "4 years",
+    name: "M Asim",
+    role: "Full-Stack developer",
+    skills: ["Next.js", "react", "nest.js", "tailwind", "node", "databases"],
+    experience: "1 Year",
     location: "Development Team",
     image: asim,
   },
   {
-    name: "Mr. Kamil",
-    role: "Full Stack Developer",
-    department: "Development",
-    skills: ["React Native", "Full Stack", "Mobile", "Web"],
-    experience: "6 years",
+    name: "Makhdoom Muhammad Kamil Jamali",
+    role: "Full Stack Engineer",
+    skills: ["React native", "Mern Stack", "Full Stack"],
+    experience: "6 Years",
     location: "Development Team",
     image: kamil,
   },
   {
-    name: "Mr. Hassan Raza",
-    role: "Full Stack Developer",
-    department: "Development",
-    skills: ["React", "Node.js", "MongoDB", "Full Stack"],
-    experience: "5 years",
+    name: "Hassan Raza",
+    role: "Full stack Developer",
+    skills: [
+      "Frontend(next js, react js, php, laravel), Backend(node js, nest js, next js) database(mongodb, mysql, postgresql, type orm, prisma orm)",
+    ],
+    experience: "4 Years",
     location: "Development Team",
-    image: dummy,
+    image: hassan,
   },
   {
-    name: "Mr. Saeed",
-    role: "Junior Mobile Engineer",
-    department: "Mobile Development",
-    skills: ["React Native", "Mobile Development", "JavaScript", "iOS"],
-    experience: "2 years",
+    name: "Muhammad Saeed",
+    role: "Mobile Engineer",
+    skills: ["React Native", "JavaScript"],
+    experience: "4 Years",
     location: "Mobile Team",
     image: saeed,
   },
   {
-    name: "Mr. Shameer Shahid",
-    role: "Backend Developer",
-    department: "Development",
-    skills: ["Backend", "API", "Database", "Server"],
-    experience: "3 years",
+    name: "Shameer Shahid",
+    role: "Mern-stack Developer",
+    skills: ["Node.js", "nest.js", "react.js"],
+    experience: "1.3 Years",
     location: "Development Team",
     image: shameer,
   },
   {
-    name: "Mr. Zeeshan",
-    role: "Mobile Engineer",
-    department: "Mobile Development",
-    skills: ["React Native", "Mobile Apps", "Flutter", "Android"],
-    experience: "4 years",
+    name: "Muhammad Zeeshan",
+    role: "Full Stack Frontend Developer (Mobile & Web)",
+    skills: ["React Native (Android & iOS)", "Next.js"],
+    experience: "4 Years",
     location: "Mobile Team",
-    image: dummy,
+    image: zeeshan,
   },
   {
-    name: "Mr. Zuhair Abbas",
-    role: "Senior React Native Engineer",
-    department: "Mobile Development",
-    skills: ["React Native", "React js", "Next js"],
-    experience: "4.5 years",
+    name: "Zuhair Abbas",
+    role: "Frontend Engineer",
+    skills: ["React Native", "React Js", "Next Js"],
+    experience: "4.5 Years",
     location: "Mobile Team",
     image: zuhair,
   },
   {
     name: "Mr. Saif ul Rehman",
     role: "Mobile Engineer",
-    department: "Mobile Development",
     skills: ["Mobile Engineering", "React Native", "iOS", "Android"],
-    experience: "4 years",
+    experience: "4 Years",
     location: "Mobile Team",
     image: q_saif,
   },
   {
     name: "Mr. Nouman Muzamil",
     role: "Software Engineer",
-    department: "Development",
     skills: ["Software Development", "Programming", "Testing", "Debugging"],
-    experience: "3 years",
+    experience: "3 Years",
     location: "Development Team",
-    image: dummy,
-  },
-  {
-    name: "Mr. Suleman",
-    role: "Senior React Native Developer",
-    department: "Mobile Development",
-    skills: [
-      "React Native",
-      "Senior Development",
-      "Mobile Architecture",
-      "Leadership",
-    ],
-    experience: "8 years",
-    location: "Mobile Team",
     image: john,
   },
   {
-    name: "Mr. Moeen U Din",
-    role: "Frontend Developer",
-    department: "Development",
-    skills: ["React Native", "JavaScript", "React js"],
-    experience: "3 years",
+    name: "Suleman Aleem",
+    role: "React native developer",
+    skills: ["React native", "React", "Javascript"],
+    experience: "3 Years",
+    location: "Mobile Team",
+    image: dummy,
+  },
+  {
+    name: "Qazi Ghulam Moeen Ud-Din",
+    role: "Junior app developer",
+    skills: ["React Native", "React-JS and JavaScrip"],
+    experience: "1 Year",
     location: "Development Team",
     image: moeen,
   },
   {
-    name: "Mr. Zulqernain",
-    role: "Full Stack Engineer",
-    department: "Development",
-    skills: ["Full Stack", "Web Development", "Backend", "Frontend"],
-    experience: "5 years",
+    name: "Muhammad Zulqarnain",
+    role: "Senior developer",
+    skills: ["Node", "react native", "react", "nest", "vue"],
+    experience: "3.5 Years",
     location: "Development Team",
     image: zul,
   },
   {
     name: "Mr. Qazi Shafi",
     role: "React.js & Next.js Developer",
-    department: "Development",
     skills: ["React.js", "Next.js", "Web Development", "JavaScript"],
-    experience: "4 years",
+    experience: "4 Years",
     location: "Development Team",
     image: qazi,
   },
   {
     name: "Mr. Saad",
     role: "Senior Mobile Engineer",
-    department: "Mobile Development",
     skills: ["React Native", "Senior Development", "Mobile", "Team Leadership"],
-    experience: "6 years",
+    experience: "6 Years",
     location: "Mobile Team",
     image: saad,
   },
   {
-    name: "Mr. Saif ud din",
-    role: "Backend Developer",
-    department: "Development",
-    skills: ["Backend Development", "API", "Database", "Server"],
-    experience: "3 years",
+    name: "Q. M. Saif ud Din",
+    role: "Software developer",
+    skills: ["Sql queries", "BE languages", "Database management", "structure"],
+    experience: "3 Years",
     location: "Development Team",
     image: saif,
   },
   {
-    name: "Mis Sam",
+    name: "SAM",
     role: "Full Stack Developer",
-    department: "Development",
-    skills: ["Full Stack", "Web Development", "React", "Node.js"],
-    experience: "4 years",
+    skills: ["Modern UI/UX Design", "React.js/Next.js", "Node.js/Express"],
+    experience: "2 Years",
     location: "Development Team",
-    image: dummy,
+    image: john,
   },
   {
-    name: "Mr. Yousaf",
-    role: "React Native Developer",
-    department: "Mobile Development",
-    skills: ["React Native", "Redux", "React js"],
-    experience: "3 years",
+    name: "Qazi Muhammad Yousuf",
+    role: "Developer",
+    skills: ["React js", "React Native", "Redux"],
+    experience: "3 Years",
     location: "Development Team",
     image: yousuf,
   },
 ];
 
-const departments = [
-  "All",
-  "Development",
-  "Mobile Development",
-  "Graphics",
-  "Administration",
-];
-
 export default function Team() {
-  const [selectedDepartment, setSelectedDepartment] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const filteredEmployees = employees.filter((employee) => {
-    const matchesDepartment =
-      selectedDepartment === "All" ||
-      employee.department === selectedDepartment;
     const matchesSearch =
       employee.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       employee.role.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesDepartment && matchesSearch;
+    return matchesSearch;
   });
 
   const stats = [
@@ -293,7 +263,7 @@ export default function Team() {
       label: "Total Team Members",
       value: employees.length + boardMembers.length + 1,
     },
-    { icon: Briefcase, label: "Departments", value: departments.length - 1 },
+    { icon: Briefcase, label: "Departments", value: 4 },
     {
       icon: User,
       label: "Senior Developers",
@@ -303,44 +273,6 @@ export default function Team() {
 
   return (
     <div className="bg-gradient-to-br from-blue-50 via-white to-blue-100 min-h-screen">
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-40 md:hidden">
-          <div className="pt-20 px-6">
-            <nav className="flex flex-col space-y-6">
-              {departments.map((dept) => (
-                <button
-                  key={dept}
-                  onClick={() => {
-                    setSelectedDepartment(dept);
-                    setIsMenuOpen(false);
-                  }}
-                  className={`text-gray-700 hover:text-blue-600 transition-colors text-lg font-medium ${
-                    selectedDepartment === dept ? "font-bold" : ""
-                  }`}
-                >
-                  {dept}
-                </button>
-              ))}
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all duration-300 w-full"
-              >
-                Close
-              </button>
-            </nav>
-          </div>
-        </div>
-      )}
-
-      {/* Overlay for mobile menu */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 md:hidden"
-          onClick={() => setIsMenuOpen(false)}
-        ></div>
-      )}
-
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16 px-4 sm:py-20 sm:px-6 mt-16">
         <div className="absolute inset-0 bg-black opacity-10"></div>
@@ -548,21 +480,6 @@ export default function Team() {
                 className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
-            <div className="flex flex-wrap gap-2">
-              {departments.map((dept) => (
-                <button
-                  key={dept}
-                  onClick={() => setSelectedDepartment(dept)}
-                  className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 text-sm sm:text-base ${
-                    selectedDepartment === dept
-                      ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-md"
-                      : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
-                  }`}
-                >
-                  {dept}
-                </button>
-              ))}
-            </div>
           </div>
 
           {/* Team Grid */}
@@ -584,9 +501,10 @@ export default function Team() {
                   <h3 className="text-lg font-bold text-gray-900 mb-1">
                     {employee.name}
                   </h3>
-                  <p className="text-blue-600 font-semibold text-sm sm:text-base mb-2">
+                  <p className="text-blue-600 font-semibold text-sm sm:text-base mb-1">
                     {employee.role}
                   </p>
+
                   <div className="flex flex-wrap justify-center gap-1 mb-4">
                     {employee.skills.slice(0, 3).map((skill, skillIndex) => (
                       <span
