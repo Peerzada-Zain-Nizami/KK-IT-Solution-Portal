@@ -1,54 +1,19 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 export const projects = [
   {
-    title: "E-commerce Platform",
-    image:
-      "https://images.pexels.com/photos/3568520/pexels-photo-3568520.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
+    title: "Homitag",
+    image: "https://via.placeholder.com/600x400?text=Homitag", // Placeholder, please provide actual image URL or path
     description:
-      "A fully scalable e-commerce platform built using React, Node.js, and MongoDB.",
-    link: "#ecommerce-platform",
+      "We handled the complete mobile app development for Homitag, a digital marketplace platform that allows users to discover, list, and interact with products and services. The app was designed for performance, smooth navigation, and real-time updates. Key Highlights:- Mobile app for browsing, listing, and secure messaging- Integration with backend APIs for real-time data- Seamless onboarding and listing mana",
+    link: "http://www.homitag.com/",
   },
   {
-    title: "Healthcare App",
-    image:
-      " https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
+    title: "Abhi Pvt. Ltd.",
+    image: "/src/assets/images/kk-team/abhi.PNG",
     description:
-      "A mobile app designed to help patients manage their health records and appointments.",
-    link: "#healthcare-app",
-  },
-  {
-    title: "Financial Dashboard",
-    image:
-      " https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
-    description:
-      "An interactive financial dashboard for tracking investments and budgets.",
-    link: "#financial-dashboard",
-  },
-  {
-    title: "Education Portal",
-    image:
-      " https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
-    description:
-      "An online learning platform featuring courses, quizzes, and certifications.",
-    link: "#education-portal",
-  },
-  {
-    title: "Social Media Analytics Tool",
-    image:
-      " https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
-    description:
-      "A tool for analyzing social media data and generating insights.",
-    link: "#social-media-analytics",
-  },
-  {
-    title: "IoT Home Automation System",
-    image:
-      " https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1",
-    description:
-      "A smart home system that integrates IoT devices for automation.",
-    link: "#iot-home-automation",
+      "We handled the development of both web and mobile platforms for Abhi Pvt. Ltd., a fintech solution offering salary advances, payroll automation, and financial wellness tools. The focus was on delivering a secure, scalable system with smooth user experiences for both employees and employers. Key Highlights:- Mobile app for salary access, requests, and transaction tracking- Web portal for HR and admin-side payroll management- Secure backend with banking API integrations and data workflows",
+    link: "https://abhi.com.pk/",
   },
 ];
 
@@ -69,7 +34,7 @@ export default function Portfolio() {
         <h2 className="text-2xl font-semibold text-gray-900 mb-8 text-center">
           Recent Projects
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -85,10 +50,15 @@ export default function Portfolio() {
                   {project.title}
                 </h3>
                 <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                  View Project <span className="ml-1">→</span>
-                </div>
               </Link>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-2"
+              >
+                Visit Website <span className="ml-1">→</span>
+              </a>
             </div>
           ))}
         </div>
