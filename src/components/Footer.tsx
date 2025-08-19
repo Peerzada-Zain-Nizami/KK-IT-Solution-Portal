@@ -5,7 +5,7 @@ import logo from "../assets/images/kk-team/logo.png";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white text-gray-800 py-12 px-6 border-t border-gray-200">
+    <footer className="bg-light-gray text-gray-800 py-12 px-6 border-t border-light-gray">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Column */}
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                 className="w-8 h-8 object-contain"
               />
               {/* </div> */}
-              <span className="text-xl font-bold text-blue-600">
+              <span className="text-xl font-bold text-royal-blue">
                 KK-IT-SOLUTIONS
               </span>
             </div>
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/services"
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  className="text-gray-600 hover:text-royal-blue transition-colors"
                 >
                   Web Development
                 </Link>
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/services"
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  className="text-gray-600 hover:text-royal-blue transition-colors"
                 >
                   Mobile Apps
                 </Link>
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/services"
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  className="text-gray-600 hover:text-royal-blue transition-colors"
                 >
                   UI/UX Design
                 </Link>
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/services"
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  className="text-gray-600 hover:text-royal-blue transition-colors"
                 >
                   DevOps
                 </Link>
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/about"
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  className="text-gray-600 hover:text-royal-blue transition-colors"
                 >
                   About Us
                 </Link>
@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/team"
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  className="text-gray-600 hover:text-royal-blue transition-colors"
                 >
                   Our Team
                 </Link>
@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/careers"
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  className="text-gray-600 hover:text-royal-blue transition-colors"
                 >
                   Careers
                 </Link>
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/portfolio"
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  className="text-gray-600 hover:text-royal-blue transition-colors"
                 >
                   Portfolio
                 </Link>
@@ -117,15 +117,15 @@ const Footer: React.FC = () => {
             </h3>
             <div className="space-y-3 text-gray-600">
               <div className="flex items-start gap-2">
-                <Mail className="w-4 h-4 text-blue-600 mt-0.5" />
+                <Mail className="w-4 h-4 text-royal-blue mt-0.5" />
                 <span>info@kkitsolutions.com</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-blue-600" />
+                <Phone className="w-4 h-4 text-royal-blue" />
                 <span>+92 300 5751689</span>
               </div>
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-blue-600 mt-0.5" />
+                <MapPin className="w-4 h-4 text-royal-blue mt-0.5" />
                 <span>
                   Green Homes Colony, House #49, Nawab Pur Road, Near 8 Number
                   Chungi
@@ -136,7 +136,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500">
+        <div className="border-t border-light-gray mt-8 pt-8 text-center text-gray-500">
           <p>
             &copy; {new Date().getFullYear()} KK-IT-SOLUTIONS. All rights
             reserved.

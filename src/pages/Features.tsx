@@ -121,9 +121,9 @@ const Features: React.FC = () => {
   return (
     <div className="min-h-screen bg-white pt-20">
       {/* Header */}
-      <section className="py-16 px-6 bg-blue-50">
+      <section className="py-16 px-6 bg-light-gray">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold text-blue-600 mb-6">
+          <h1 className="text-5xl font-bold text-royal-blue mb-6">
             Why Choose KK-IT-SOLUTION?
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -140,9 +140,9 @@ const Features: React.FC = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200"
+                className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-light-gray"
               >
-                <div className="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <div className="bg-royal-blue text-white w-16 h-16 rounded-full flex items-center justify-center mb-6">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -158,10 +158,10 @@ const Features: React.FC = () => {
       </section>
 
       {/* Technologies */}
-      <section className="py-16 px-6 bg-blue-50">
+      <section className="py-16 px-6 bg-light-gray">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-blue-600 mb-4">
+            <h2 className="text-4xl font-bold text-royal-blue mb-4">
               Technologies We Use
             </h2>
             <p className="text-xl text-gray-600">
@@ -173,7 +173,7 @@ const Features: React.FC = () => {
             {technologies.map((tech, index) => (
               <div
                 key={index}
-                className="bg-white p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-colors duration-300 border border-gray-200"
+                className="bg-white p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-colors duration-300 border border-light-gray"
               >
                 <span className="text-gray-800 font-medium">{tech}</span>
               </div>
@@ -186,7 +186,7 @@ const Features: React.FC = () => {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-blue-600 mb-4">
+            <h2 className="text-4xl font-bold text-royal-blue mb-4">
               Benefits of Working With Us
             </h2>
           </div>
@@ -201,21 +201,29 @@ const Features: React.FC = () => {
                 "Regular updates and feature enhancements",
               ].map((benefit, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-blue-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-royal-blue mt-1 flex-shrink-0" />
                   <span className="text-gray-700">{benefit}</span>
                 </div>
               ))}
             </div>
 
-            <div className="bg-blue-50 p-8 rounded-2xl text-blue-900">
+            <div className="bg-light-gray p-8 rounded-2xl text-royal-blue">
               <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
               <p className="mb-6">
                 Let's discuss your project and see how we can help you achieve
                 your digital goals.
               </p>
+<<<<<<< Updated upstream
               <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg">
                 Schedule a Consultation
               </button>
+=======
+              <Link to="/schedule-call">
+                <button className="bg-royal-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-deep-navy-blue transition-colors duration-300 shadow-md hover:shadow-lg">
+                  Schedule a Consultation
+                </button>
+              </Link>
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>

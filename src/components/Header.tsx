@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Menu, X, Phone, Mail } from "lucide-react";
+<<<<<<< Updated upstream
+=======
+import { motion } from "framer-motion";
+import logo from "../assets/images/kk-team/logo.png";
+>>>>>>> Stashed changes
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,13 +57,27 @@ const Header = () => {
             {/* Logo and Brand */}
             <div className="flex items-center gap-3 group relative cursor-pointer">
               <div className="relative">
+<<<<<<< Updated upstream
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110 relative z-10">
                   <span className="text-white font-bold text-lg">KK</span>
                 </div>
+=======
+                <div className="absolute -inset-2 bg-gradient-to-r from-royal-blue to-deep-navy-blue rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <motion.div
+                  className="w-10 h-10 bg-white rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110 relative z-10"
+                  whileHover={{ rotate: 5 }}
+                >
+                  <img
+                    src={logo}
+                    alt="KK-IT-Solutions Logo"
+                    className="h-full w-full object-contain"
+                  />
+                </motion.div>
+>>>>>>> Stashed changes
               </div>
               <div className="flex flex-col">
-                <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+                <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-royal-blue via-deep-navy-blue to-deep-navy-blue bg-clip-text text-transparent">
                   KK-IT-SOLUTIONS
                 </span>
                 <span className="text-xs text-gray-500 font-medium tracking-wide hidden sm:block">
@@ -74,6 +93,7 @@ const Header = () => {
                 return (
                   <Link
                     key={item.path}
+<<<<<<< Updated upstream
                     to={item.path}
                     onClick={() => setActiveItem(item.path)}
                     className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
@@ -85,6 +105,24 @@ const Header = () => {
                     <span className="relative z-10">{item.name}</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
+=======
+                    whileHover={{ scale: 1.05, color: "#2D5DA1" }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Link
+                      to={item.path}
+                      onClick={() => setActiveItem(item.path)}
+                      className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
+                        isActive
+                          ? "text-royal-blue bg-light-gray"
+                          : "text-gray-700 hover:text-royal-blue hover:bg-light-gray"
+                      }`}
+                    >
+                      <span className="relative z-10">{item.name}</span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-royal-blue/10 to-deep-navy-blue/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </Link>
+                  </motion.div>
+>>>>>>> Stashed changes
                 );
               })}
             </nav>
@@ -93,7 +131,13 @@ const Header = () => {
             <div className="hidden lg:flex items-center space-x-4">
               <button
                 onClick={handleScheduleCall}
+<<<<<<< Updated upstream
                 className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-xl group"
+=======
+                className="relative overflow-hidden bg-gradient-to-r from-royal-blue to-deep-navy-blue hover:from-royal-blue hover:to-deep-navy-blue text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-xl group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+>>>>>>> Stashed changes
               >
                 <span className="relative z-10">Schedule a Call</span>
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
@@ -106,7 +150,7 @@ const Header = () => {
               onClick={toggleMenu}
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              className="lg:hidden p-2 text-gray-600 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 relative z-50"
+              className="lg:hidden p-2 text-gray-600 hover:text-royal-blue focus:outline-none focus:ring-2 focus:ring-royal-blue relative z-50"
             >
               <div className="w-6 h-6 relative">
                 <Menu
@@ -128,7 +172,7 @@ const Header = () => {
         <div
           className={`lg:hidden transition-all duration-300 ${
             isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-          } overflow-hidden bg-white/95 backdrop-blur-md border-t border-gray-100 z-40`}
+          } overflow-hidden bg-white/95 backdrop-blur-md border-t border-light-gray z-40`}
         >
           <div className="px-4 py-6 space-y-4">
             {navItems.map((item) => {
@@ -150,13 +194,31 @@ const Header = () => {
                       : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                   }`}
                 >
+<<<<<<< Updated upstream
                   {item.name}
                 </Link>
+=======
+                  <Link
+                    to={item.path}
+                    onClick={() => {
+                      setActiveItem(item.path);
+                      closeMenu();
+                    }}
+                    className={`block w-full text-left px-4 py-3 text-base font-medium transition-all duration-300 rounded-lg ${
+                      isActive
+                        ? "text-royal-blue bg-light-gray font-semibold"
+                        : "text-gray-700 hover:text-royal-blue hover:bg-light-gray"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+>>>>>>> Stashed changes
               );
             })}
 
             {/* Mobile Contact Info */}
-            <div className="pt-4 border-t border-gray-200 space-y-3">
+            <div className="pt-4 border-t border-light-gray space-y-3">
               <div className="flex items-center space-x-3 px-4 text-sm text-gray-600">
                 <Phone className="w-4 h-4" />
                 <span>+92 3042483426</span>
@@ -170,7 +232,13 @@ const Header = () => {
             <div className="pt-4">
               <button
                 onClick={handleScheduleCall}
+<<<<<<< Updated upstream
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg"
+=======
+                className="w-full bg-gradient-to-r from-royal-blue to-deep-navy-blue hover:from-royal-blue hover:to-deep-navy-blue text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+>>>>>>> Stashed changes
               >
                 <span>Schedule a Call</span>
                 <ArrowRight className="w-5 h-5" />
