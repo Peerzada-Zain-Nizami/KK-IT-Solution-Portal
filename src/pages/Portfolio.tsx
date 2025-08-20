@@ -21,11 +21,6 @@ export default function Portfolio() {
   return (
     <div className="bg-white text-gray-800 min-h-screen py-16 px-6 mt-12">
       {/* Header */}
-<<<<<<< Updated upstream
-      <header className="text-center mb-16 mt-10">
-        <h1 className="text-4xl font-bold text-blue-600 mb-4">Portfolio</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-=======
       <motion.header
         className="text-center mb-16 mt-10"
         initial="hidden"
@@ -43,11 +38,10 @@ export default function Portfolio() {
           variants={itemVariants}
           className="text-lg text-gray-600 max-w-2xl mx-auto"
         >
->>>>>>> Stashed changes
           Explore some of our recent projects and see how we bring innovative
           ideas to life.
-        </p>
-      </header>
+        </motion.p>
+      </motion.header>
 
       {/* Projects Grid */}
       <section className="mb-20">
@@ -56,15 +50,11 @@ export default function Portfolio() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-<<<<<<< Updated upstream
-              className="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300"
-=======
               className="bg-white p-6 rounded-xl shadow-md border border-light-gray hover:shadow-xl transition-shadow duration-300"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
->>>>>>> Stashed changes
             >
               <Link to={`/portfolio/${index}`}>
                 <img
@@ -85,7 +75,7 @@ export default function Portfolio() {
               >
                 Visit Website <span className="ml-1">→</span>
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>

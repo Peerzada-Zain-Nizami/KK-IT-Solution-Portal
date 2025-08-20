@@ -27,6 +27,8 @@ import {
   Globe,
   BookOpen,
 } from "lucide-react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Banner from "../components/Banner";
 import aiImg from "../assets/images/kk-team/ai.jpg";
@@ -52,8 +54,6 @@ const LogoImage = ({ src, fallbackSrc, alt, className }: any) => {
   );
 };
 
-<<<<<<< Updated upstream
-=======
 const variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -78,7 +78,6 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
->>>>>>> Stashed changes
 const steps = [
   {
     number: 1,
@@ -681,10 +680,6 @@ const KKITSolution = () => {
       {/* Services Section */}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-<<<<<<< Updated upstream
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-=======
           <motion.div
             className="text-center mb-16"
             initial="hidden"
@@ -696,10 +691,9 @@ const KKITSolution = () => {
               variants={itemVariants}
               className="inline-flex items-center bg-light-gray text-royal-blue px-4 py-2 rounded-full text-sm font-medium mb-6"
             >
->>>>>>> Stashed changes
               <Zap className="w-4 h-4 mr-2" />
               Our Services
-            </div>
+            </motion.div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Comprehensive IT Solutions
             </h2>
@@ -707,19 +701,15 @@ const KKITSolution = () => {
               From web development to digital transformation, we provide
               end-to-end technology solutions that drive business growth.
             </p>
-          </div>
+          </motion.div>
           {/* Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={index}
-<<<<<<< Updated upstream
-                className="bg-white p-6 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"
-=======
                 className="bg-white p-6 rounded-2xl shadow-md border border-light-gray hover:shadow-lg transition-shadow duration-300"
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
->>>>>>> Stashed changes
               >
                 <div className="flex items-center mb-4">
                   <div className="bg-royal-blue text-white rounded-full p-3 mr-4">
@@ -739,7 +729,7 @@ const KKITSolution = () => {
                     <li key={idx}>{feature}</li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -748,9 +738,15 @@ const KKITSolution = () => {
       {/* Features Section */}
       <section className="py-20 relative bg-light-gray">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
             {/* Left Content */}
-            <div>
+            <motion.div variants={itemVariants}>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Why Choose KK-IT-SOLUTIONS ?
               </h2>
@@ -768,10 +764,10 @@ const KKITSolution = () => {
                 professionalism meets unparalleled proficiency, and together, we
                 shape the future of your digital endeavors.
               </p>
-            </div>
+            </motion.div>
 
             {/* Right Side - World Map */}
-            <div className="relative">
+            <motion.div variants={itemVariants} className="relative">
               <div className="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden">
                 <img
                   src={aiImg}
@@ -779,21 +775,23 @@ const KKITSolution = () => {
                   className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
             {/* Empowered Innovation */}
-<<<<<<< Updated upstream
-            <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-green-500">
-=======
             <motion.div
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-royal-blue"
             >
->>>>>>> Stashed changes
               <div className="flex items-center mb-4">
                 <div className="w-2 h-8 bg-royal-blue rounded mr-4"></div>
                 <h3 className="text-xl font-bold text-gray-900">
@@ -805,18 +803,14 @@ const KKITSolution = () => {
                 solutions, driving progress, and shaping the future of IT
                 excellence.
               </p>
-            </div>
+            </motion.div>
 
             {/* Guaranteed Excellence */}
-<<<<<<< Updated upstream
-            <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-yellow-500">
-=======
             <motion.div
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-deep-navy-blue"
             >
->>>>>>> Stashed changes
               <div className="flex items-center mb-4">
                 <div className="w-2 h-8 bg-deep-navy-blue rounded mr-4"></div>
                 <h3 className="text-xl font-bold text-gray-900">
@@ -827,18 +821,14 @@ const KKITSolution = () => {
                 We think out of the box about every incoming thread and problem
                 that customers face and provide diligent solutions.
               </p>
-            </div>
+            </motion.div>
 
             {/* Impeccable Performance */}
-<<<<<<< Updated upstream
-            <div className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-purple-500">
-=======
             <motion.div
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               className="bg-white rounded-xl shadow-lg p-8 border-l-4 border-royal-blue"
             >
->>>>>>> Stashed changes
               <div className="flex items-center mb-4">
                 <div className="w-2 h-8 bg-royal-blue rounded mr-4"></div>
                 <h3 className="text-xl font-bold text-gray-900">
@@ -849,16 +839,22 @@ const KKITSolution = () => {
                 We offer software with robust speed and on time by focusing on
                 the deliverables and tricky clients' requirements.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
             {/* Left Side - Content */}
-            <div>
+            <motion.div variants={itemVariants}>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
                 Our process. Simple, seamless, streamlined.
               </h2>
@@ -889,12 +885,19 @@ const KKITSolution = () => {
                   <div className="absolute top-1/2 right-8 w-4 h-4 bg-royal-blue rounded-full opacity-70"></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Side - Process Steps */}
-            <div className="space-y-8">
+            <motion.div variants={itemVariants} className="space-y-8">
               {steps.map((step, index) => (
-                <div key={index} className="relative">
+                <motion.div
+                  key={index}
+                  className="relative"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={variants}
+                >
                   {/* Connecting Line */}
                   {index < steps.length - 1 && (
                     <div className="absolute left-6 top-16 w-0.5 h-16 bg-light-gray"></div>
@@ -923,25 +926,10 @@ const KKITSolution = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
 
               {/* CTA Button */}
-<<<<<<< Updated upstream
-              <div className="pt-8">
-                <button
-                  onClick={() =>
-                    window.open("https://calendly.com/ ", "_blank")
-                  }
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2 shadow-lg"
-                >
-                  <span>Schedule a Call</span>
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-          </div>
-=======
               <motion.div variants={itemVariants} className="pt-8">
                 <Link to="/schedule-call">
                   <button className="bg-royal-blue hover:bg-deep-navy-blue text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2 shadow-lg">
@@ -952,13 +940,18 @@ const KKITSolution = () => {
               </motion.div>
             </motion.div>
           </motion.div>
->>>>>>> Stashed changes
         </div>
       </section>
 
       <section className="py-16 bg-gradient-to-b from-white to-light-gray">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
             <h2 className="text-4xl font-extrabold text-gray-900 mb-3">
               Generative AI Cloud Services
             </h2>
@@ -966,7 +959,7 @@ const KKITSolution = () => {
               We are experts in developing solutions with the latest generative
               AI technologies.
             </p>
-          </div>
+          </motion.div>
 
           {/* Main Slide Content */}
           <div
@@ -1034,9 +1027,15 @@ const KKITSolution = () => {
           </div>
 
           {/* Thumbnail Navigation */}
-          <div className="flex flex-wrap justify-center gap-4 mt-6">
+          <motion.div
+            className="flex flex-wrap justify-center gap-4 mt-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
             {aiServices.map((service, index) => (
-              <button
+              <motion.button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-300 ease-in-out transform hover:scale-105 border ${
@@ -1044,6 +1043,7 @@ const KKITSolution = () => {
                     ? "bg-light-gray border-royal-blue shadow-md scale-105"
                     : "bg-white border-light-gray hover:border-gray-300"
                 }`}
+                variants={itemVariants}
               >
                 <LogoImage
                   src={service.logo}
@@ -1058,25 +1058,33 @@ const KKITSolution = () => {
                 >
                   {service.name}
                 </span>
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+          <motion.div
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl font-bold text-gray-900 mb-3"
+            >
               Trusted by Industry Leaders
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
+            >
               We're proud to collaborate with some of the world's most
               innovative companies.
-<<<<<<< Updated upstream
-            </p>
-          </div>
-=======
             </motion.p>
           </motion.div>
 
@@ -1136,37 +1144,44 @@ const KKITSolution = () => {
               </motion.div>
             </div>
           </section>
->>>>>>> Stashed changes
 
           {/* Client Logos Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
             {clients.map((client, index) => (
-              <div
+              <motion.div
                 key={index}
-<<<<<<< Updated upstream
-                className="flex items-center justify-center p-4 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
-=======
                 className="flex items-center justify-center p-4 bg-light-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
                 variants={itemVariants}
                 whileHover={{ scale: 1.1 }}
->>>>>>> Stashed changes
               >
                 <img
                   src={client.logo}
                   alt={`${client.name} Logo`}
                   className="h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
                 />
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="py-20 bg-light-gray">
         <div className="max-w-6xl mx-auto px-6">
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+          <motion.h3
+            className="text-2xl font-bold text-center text-gray-900 mb-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={variants}
+          >
             What Our Clients Say
-          </h3>
+          </motion.h3>
           <Carousel
             indicators={true}
             controls={true}
@@ -1204,25 +1219,28 @@ const KKITSolution = () => {
       <div className="min-h-screen bg-gradient-to-br from-light-gray via-white to-light-gray py-16 px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            >
               Our Development
-<<<<<<< Updated upstream
-              <span className="text-blue-600"> Workflow</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-=======
               <span className="text-royal-blue"> Workflow</span>
             </motion.h1>
             <motion.p
               variants={itemVariants}
               className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
             >
->>>>>>> Stashed changes
               From concept to launch, we follow a proven methodology that
               ensures your project's success through every phase of development.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           {/* Workflow Steps */}
           <div className="relative">
@@ -1231,7 +1249,7 @@ const KKITSolution = () => {
 
             <div className="space-y-8">
               {workflowSteps.map((step, index) => (
-                <div
+                <motion.div
                   key={step.id}
                   className={`relative group cursor-pointer transition-all duration-500 ${
                     activeStep === index
@@ -1241,6 +1259,10 @@ const KKITSolution = () => {
                   onClick={() =>
                     setActiveStep(activeStep === index ? -1 : index)
                   }
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={variants}
                 >
                   <div
                     className={`flex items-start space-x-6 p-8 rounded-2xl shadow-lg transition-all duration-300 ${
@@ -1311,7 +1333,7 @@ const KKITSolution = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
 
               {/* CTA Button */}
@@ -1325,69 +1347,24 @@ const KKITSolution = () => {
               </motion.div>
             </div>
           </div>
-
-          {/* CTA Section */}
-          <div className="mt-20 text-center">
-            <div className="bg-white rounded-3xl shadow-xl p-12 max-w-4xl mx-auto">
-              <div className="flex items-center justify-center mb-6">
-                <MessageSquare className="w-12 h-12 text-royal-blue" />
-              </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Ready to Start Your Project?
-              </h2>
-              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Let's discuss your ideas and create something amazing together.
-                Our team is ready to bring your vision to life.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-<<<<<<< Updated upstream
-                <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
-                  Start Your Project
-                </button>
-                <button className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-colors duration-200">
-                  View Portfolio
-                </button>
-=======
-                <Link to="/schedule-call">
-                  <button className="bg-royal-blue text-white px-8 py-4 rounded-xl font-semibold hover:bg-deep-navy-blue transition-colors duration-200 shadow-lg hover:shadow-xl">
-                    Start Your Project
-                  </button>
-                </Link>
-                <Link to="/portfolio">
-                  <button className="border-2 border-royal-blue text-royal-blue px-8 py-4 rounded-xl font-semibold hover:bg-light-gray transition-colors duration-200">
-                    View Portfolio
-                  </button>
-                </Link>
->>>>>>> Stashed changes
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-royal-blue to-deep-navy-blue relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <motion.div
+          className="max-w-4xl mx-auto text-center px-6 relative z-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+        >
+          <motion.h2
+            variants={itemVariants}
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+          >
             Ready to Transform Your Business?
-<<<<<<< Updated upstream
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Let's discuss your project and create innovative solutions that
-            drive your business forward.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="group bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
-              Start Your Project
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
-              Schedule Consultation
-            </button>
-          </div>
-        </div>
-=======
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -1413,12 +1390,18 @@ const KKITSolution = () => {
             </Link>
           </motion.div>
         </motion.div>
->>>>>>> Stashed changes
       </section>
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <FAQ />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={variants}
+          >
+            <FAQ />
+          </motion.div>
         </div>
       </section>
     </div>

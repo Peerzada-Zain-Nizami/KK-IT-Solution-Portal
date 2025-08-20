@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import Team from "./pages/Team";
 import Careers from "./pages/Careers";
 import Portfolio from "./pages/Portfolio";
+import ScheduleCall from "./pages/ScheduleCall";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
@@ -32,6 +33,7 @@ function App() {
             <Route path="/careers" element={<Careers />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/portfolio/:id" element={<ProjectDetails />} />
+            <Route path="/schedule-call" element={<ScheduleCall />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
