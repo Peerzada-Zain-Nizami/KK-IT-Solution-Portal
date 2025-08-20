@@ -7,6 +7,7 @@ import {
   Globe,
   HeartHandshake,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Features: React.FC = () => {
   const features = [
@@ -213,17 +214,11 @@ const Features: React.FC = () => {
                 Let's discuss your project and see how we can help you achieve
                 your digital goals.
               </p>
-<<<<<<< Updated upstream
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg">
-                Schedule a Consultation
-              </button>
-=======
               <Link to="/schedule-call">
                 <button className="bg-royal-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-deep-navy-blue transition-colors duration-300 shadow-md hover:shadow-lg">
                   Schedule a Consultation
                 </button>
               </Link>
->>>>>>> Stashed changes
             </div>
           </div>
         </div>
