@@ -229,6 +229,15 @@ const Banner = () => {
           style={buttonStyle}
           onMouseEnter={handleButtonHover}
           onMouseLeave={handleButtonLeave}
+          onClick={() => {
+            const servicesSection = document.getElementById("services");
+            if (servicesSection) {
+              servicesSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          }}
         >
           Get Started
         </button>

@@ -8,6 +8,18 @@ export default {
         "deep-navy-blue": "#14283E",
         "light-gray": "#F5F5F5",
       },
+      fontFamily: {
+                 sans: [
+           "Poppins",
+           "ui-sans-serif",
+           "system-ui",
+           "-apple-system",
+           "BlinkMacSystemFont",
+           "Segoe UI",
+           "Arial",
+           "sans-serif",
+         ],
+      },
     },
   },
   plugins: [],

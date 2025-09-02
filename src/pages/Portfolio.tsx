@@ -75,11 +75,7 @@ export default function Portfolio() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-<<<<<<< HEAD
               className="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300"
-=======
-              className="bg-white p-6 rounded-xl shadow-md border border-light-gray hover:shadow-xl transition-shadow duration-300"
->>>>>>> 2e2e449887329c779817c1b3f383cfa8ac26e9c9
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
             >

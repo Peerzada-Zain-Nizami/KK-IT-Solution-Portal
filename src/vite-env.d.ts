@@ -35,8 +35,5 @@ declare module "*.PNG" {
   export default value;
 }
 
-declare module "*" {
-  // Catch-all for any unrecognized image types
-  const value: string;
-  export default value;
-}
+// NOTE: Avoid using a wildcard module declaration like `declare module "*"`.
+// It breaks type resolution for real packages (e.g., `lucide-react`).

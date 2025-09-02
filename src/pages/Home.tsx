@@ -21,7 +21,6 @@ import {
   ChevronRight,
   TestTube,
   Rocket,
-  MessageSquare,
   Lock,
   Terminal,
   Globe,
@@ -122,6 +121,17 @@ const KKITSolution = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const [scrolled, setScrolled] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
+
+  // Function to scroll to services section
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById("services");
+    if (servicesSection) {
+      servicesSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   // Scroll handler
   useEffect(() => {
@@ -667,7 +677,10 @@ const KKITSolution = () => {
                   {item}
                 </a>
               ))}
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all duration-300 w-full">
+              <button
+                onClick={scrollToServices}
+                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all duration-300 w-full"
+              >
                 Get Started
               </button>
             </nav>
@@ -689,7 +702,7 @@ const KKITSolution = () => {
           >
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center bg-light-gray text-royal-blue px-4 py-2 rounded-full text-sm font-medium mb-6"
+              className="inline-flex items-center bg-light-gray text-royal-blue px-4 py-2 rounded-full text-sm font-bold mb-6"
             >
               <Zap className="w-4 h-4 mr-2" />
               Our Services
@@ -703,32 +716,69 @@ const KKITSolution = () => {
             </p>
           </motion.div>
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-2xl shadow-md border border-light-gray hover:shadow-lg transition-shadow duration-300"
                 variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ y: -8, scale: 1.01 }}
+                className="relative group h-full"
               >
-                <div className="flex items-center mb-4">
-                  <div className="bg-royal-blue text-white rounded-full p-3 mr-4">
-                    {React.cloneElement(service.icon, {
-                      className: "w-6 h-6",
-                    })}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600">{service.description}</p>
+                {/* Glow background */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-royal-blue to-deep-navy-blue rounded-full blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+
+                {/* Card with subtle glass effect */}
+                <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-royal-blue/20 to-deep-navy-blue/20 h-full">
+                  <div className="h-full rounded-2xl bg-white/90 backdrop-blur-sm p-7 shadow-md transition-all duration-300 group-hover:shadow-2xl flex flex-col">
+                    {/* Header Section - Fixed Height */}
+                    <div className="h-32 flex items-start gap-3 mb-0">
+                      <div className="relative">
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-royal-blue to-deep-navy-blue opacity-20 blur-sm group-hover:opacity-30 transition-opacity" />
+                        <div className="relative bg-gradient-to-br from-royal-blue to-deep-navy-blue text-white p-3 rounded-xl shadow-sm">
+                          {React.cloneElement(service.icon, {
+                            className: "w-8 h-8 text-white",
+                          })}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-gray-900 tracking-tight mb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed text-sm line-clamp-3">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Features Section - Aligned */}
+                    <div className="flex-1">
+                      <ul className="space-y-2 ml-8">
+                        {service.features.slice(0, 4).map((feature, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-start gap-2 text-gray-700"
+                          >
+                            <ChevronRight className="w-4 h-4 text-royal-blue mt-0.5 flex-shrink-0" />
+                            <span className="text-sm leading-relaxed">
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Footer CTA */}
+                    <div className="pt-6 mt-auto flex items-center justify-between">
+                      <Link
+                        to="/schedule-call"
+                        className="inline-flex items-center text-royal-blue font-semibold hover:text-deep-navy-blue transition-colors"
+                      >
+                        Schedule a Call
+                        <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-                <ul className="list-disc pl-5 text-gray-600">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx}>{feature}</li>
-                  ))}
-                </ul>
               </motion.div>
             ))}
           </div>
@@ -1244,8 +1294,7 @@ const KKITSolution = () => {
 
           {/* Workflow Steps */}
           <div className="relative">
-            {/* Progress Line */}
-            <div className="absolute left-8 top-24 bottom-0 w-0.5 bg-light-gray hidden md:block"></div>
+            {/* Progress Line removed to avoid visual line near CTA */}
 
             <div className="space-y-8">
               {workflowSteps.map((step, index) => (
@@ -1377,12 +1426,13 @@ const KKITSolution = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link to="/schedule-call">
-              <button className="group bg-white text-royal-blue px-8 py-4 rounded-full font-semibold hover:bg-light-gray transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
-                Start Your Project
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </Link>
+            <button
+              onClick={scrollToServices}
+              className="group bg-white text-royal-blue px-8 py-4 rounded-full font-semibold hover:bg-light-gray transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+            >
+              Start Your Project
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </button>
             <Link to="/schedule-call">
               <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-royal-blue transition-all duration-300">
                 Schedule Consultation

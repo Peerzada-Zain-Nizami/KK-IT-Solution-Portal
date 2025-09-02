@@ -191,7 +191,10 @@ const Header = () => {
 
             <div className="pt-4">
               <button
-                onClick={handleScheduleCall}
+                onClick={() => {
+                  handleScheduleCall();
+                  closeMenu();
+                }}
                 className="w-full bg-gradient-to-r from-royal-blue to-deep-navy-blue hover:from-royal-blue hover:to-deep-navy-blue text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

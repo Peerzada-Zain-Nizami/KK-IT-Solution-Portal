@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -17,10 +23,22 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProjectDetails from "./pages/ProjectDetails";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  // Scroll to top on every route change (auto behavior for broad support)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [pathname]);
+  return null;
+}
+
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-slate-800">
+        <ScrollToTop />
         <Header />
         <main>
           <Routes>

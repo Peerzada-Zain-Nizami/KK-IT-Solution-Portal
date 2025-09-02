@@ -5,7 +5,6 @@ import {
   Github,
   Mail,
   Calendar,
-  MapPin,
   User,
   Briefcase,
   Users,
@@ -92,7 +91,7 @@ const boardMembers = [
 const employees = [
   {
     name: "Muhammad Subtain",
-    role: "Developer",
+    role: "Backend Developer",
     skills: ["Node.Js", "Nest.Js", "Databases"],
     experience: "4 Years",
     location: "Development Team",
@@ -234,7 +233,7 @@ const employees = [
     skills: ["Modern UI/UX Design", "React.js/Next.js", "Node.js/Express"],
     experience: "2 Years",
     location: "Development Team",
-    image: john,
+    image: dummy,
   },
   {
     name: "Qazi Muhammad Yousuf",
@@ -248,7 +247,6 @@ const employees = [
 
 export default function Team() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const filteredEmployees = employees.filter((employee) => {
     const matchesSearch =
@@ -483,52 +481,34 @@ export default function Team() {
           </div>
 
           {/* Team Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-stretch">
             {filteredEmployees.map((employee, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <div className="text-center">
-                  <div className="relative mb-4">
-                    <img
-                      src={employee.image}
-                      alt={employee.name}
-                      className="w-20 h-20 mx-auto rounded-full object-contain shadow-md ring-2 ring-blue-100"
-                    />
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 opacity-20 mx-auto w-20 h-20"></div>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">
-                    {employee.name}
-                  </h3>
-                  <p className="text-blue-600 font-semibold text-sm sm:text-base mb-1">
-                    {employee.role}
-                  </p>
+              <div key={index} className="group relative h-full">
+                {/* Hover glow */}
+                <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-royal-blue/15 to-deep-navy-blue/15 opacity-0 group-hover:opacity-100 blur-xl transition duration-500" />
+                {/* Card */}
+                <div className="relative bg-white/90 backdrop-blur-sm border border-light-gray rounded-2xl p-6 shadow-md h-full flex flex-col transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+                  <div className="flex flex-col items-center text-center flex-1">
+                    {/* Avatar with gradient ring */}
+                    <div className="relative mb-4">
+                      <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-royal-blue to-deep-navy-blue opacity-30 blur" />
+                      <div className="relative w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-royal-blue to-deep-navy-blue">
+                        <div className="w-full h-full rounded-full bg-white p-1">
+                          <img
+                            src={employee.image}
+                            alt={employee.name}
+                            className="w-full h-full rounded-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
 
-                  <div className="flex flex-wrap justify-center gap-1 mb-4">
-                    {employee.skills.slice(0, 3).map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                    {employee.skills.length > 3 && (
-                      <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
-                        +{employee.skills.length - 3}
-                      </span>
-                    )}
-                  </div>
-                  <div className="space-y-2 text-center">
-                    <div className="flex items-center justify-center text-sm text-gray-500">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      <span>{employee.experience}</span>
-                    </div>
-                    <div className="flex items-center justify-center text-sm text-gray-500">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      <span>{employee.location}</span>
-                    </div>
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900">
+                      {employee.name}
+                    </h3>
+                    <p className="text-royal-blue font-semibold text-sm sm:text-base mt-1">
+                      {employee.role}
+                    </p>
                   </div>
                 </div>
               </div>

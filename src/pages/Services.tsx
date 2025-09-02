@@ -1,17 +1,19 @@
 import React from "react";
 import {
+  ChevronRight,
   Code,
   Smartphone,
-  Palette,
-  Server,
-  Globe,
+  Cloud,
   Database,
+  Palette,
+  Globe,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Services: React.FC = () => {
   const services = [
     {
-      icon: <Code className="w-12 h-12 text-blue-600" />,
+      Icon: Code,
       title: "Web Development",
       description:
         "Develop high-performance, scalable, and secure web applications using modern frontend and backend technologies like React, Vue, Node.js, and more.",
@@ -26,7 +28,7 @@ const Services: React.FC = () => {
       ],
     },
     {
-      icon: <Smartphone className="w-12 h-12 text-blue-600" />,
+      Icon: Smartphone,
       title: "Mobile App Development",
       description:
         "Design and build high-quality native and cross-platform mobile applications for both iOS and Android platforms, ensuring seamless user experience and performance.",
@@ -41,22 +43,7 @@ const Services: React.FC = () => {
       ],
     },
     {
-      icon: <Palette className="w-12 h-12 text-blue-600" />,
-      title: "UI/UX Design",
-      description:
-        "Create intuitive, user-centered interfaces that improve engagement and drive user satisfaction through research, wireframing, and visual design.",
-      features: [
-        "User research and personas",
-        "User journey mapping",
-        "Wireframing and prototyping",
-        "High-fidelity UI mockups",
-        "Accessibility & usability testing",
-        "Design system creation",
-        "Mobile and desktop responsive design",
-      ],
-    },
-    {
-      icon: <Server className="w-12 h-12 text-blue-600" />,
+      Icon: Cloud,
       title: "DevOps & Cloud",
       description:
         "Automate, deploy, and scale applications using modern DevOps practices and cloud infrastructure on platforms like AWS, Azure, and Google Cloud.",
@@ -71,7 +58,22 @@ const Services: React.FC = () => {
       ],
     },
     {
-      icon: <Globe className="w-12 h-12 text-blue-600" />,
+      Icon: Database,
+      title: "Database Design",
+      description:
+        "Design, implement, and optimize relational and non-relational databases to ensure data integrity, scalability, and high performance.",
+      features: [
+        "Relational database design (MySQL, PostgreSQL)",
+        "NoSQL database modeling (MongoDB, DynamoDB)",
+        "Query optimization and indexing",
+        "Database normalization and security",
+        "Data migration and backup",
+        "Real-time data synchronization",
+        "Scalability and replication strategies",
+      ],
+    },
+    {
+      Icon: Globe,
       title: "E-commerce Solutions",
       description:
         "Build and manage powerful online stores with secure payment integrations, inventory tracking, and customer analytics for a seamless shopping experience.",
@@ -86,18 +88,18 @@ const Services: React.FC = () => {
       ],
     },
     {
-      icon: <Database className="w-12 h-12 text-blue-600" />,
-      title: "Database Design",
+      Icon: Palette,
+      title: "UI/UX Design",
       description:
-        "Design, implement, and optimize relational and non-relational databases to ensure data integrity, scalability, and high performance.",
+        "Create intuitive, user-centered interfaces that improve engagement and drive user satisfaction through research, wireframing, and visual design.",
       features: [
-        "Relational database design (MySQL, PostgreSQL)",
-        "NoSQL database modeling (MongoDB, DynamoDB)",
-        "Query optimization and indexing",
-        "Database normalization and security",
-        "Data migration and backup",
-        "Real-time data synchronization",
-        "Scalability and replication strategies",
+        "User research and personas",
+        "User journey mapping",
+        "Wireframing and prototyping",
+        "High-fidelity UI mockups",
+        "Accessibility & usability testing",
+        "Design system creation",
+        "Mobile and desktop responsive design",
       ],
     },
   ];
@@ -117,36 +119,54 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid (matches Home page design) */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-200"
+                whileHover={{ y: -8, scale: 1.01 }}
+                className="relative group h-full"
               >
-                <div className="bg-blue-50 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-royal-blue to-deep-navy-blue rounded-full blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-royal-blue/20 to-deep-navy-blue/20 h-full">
+                  <div className="h-full rounded-2xl bg-white/90 backdrop-blur-sm p-7 shadow-md transition-all duration-300 group-hover:shadow-2xl flex flex-col">
+                    <div className="flex items-start gap-4 mb-5">
+                      <div className="relative">
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-royal-blue to-deep-navy-blue opacity-20 blur-sm group-hover:opacity-30 transition-opacity" />
+                        <div className="relative bg-gradient-to-br from-royal-blue to-deep-navy-blue text-white p-3 rounded-xl shadow-sm">
+                          {/* Render icon component safely */}
+                          {(() => {
+                            const IconComp = service.Icon;
+                            return <IconComp className="w-8 h-8 text-white" />;
+                          })()}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-gray-900 tracking-tight">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-600 mt-1 leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    <ul className="mt-4 space-y-2 flex-1">
+                      {service.features.map((feature, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-gray-700"
+                        >
+                          <ChevronRight className="w-4 h-4 text-royal-blue mt-0.5" />
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-center gap-2 text-gray-600"
-                    >
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
